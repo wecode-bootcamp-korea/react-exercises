@@ -27,36 +27,17 @@ class App extends Component {
   };
 
   // 데이터 로딩
-  componentDidMount = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(res => this.setState({
-        monsters : res
-      }), () => console.log(this.state.monsters)).catch(err => console.log(err));
-  };
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
-  handleChange = (e) => {
-    this.setState({
-      userInput : e.target.value
-    });
-  };
 
   render() {
     // 필터링 로직
-    const { monsters, userInput } = this.state;
-    const filtered = monsters.filter(monster => {
-        // 검색했을 때 monster.name과 일치하는 것만 filter시키자.
-        return monster.name.toLowerCase().indexOf(userInput) !== -1;
-    });
-    console.log(filtered);
- 
-    
+
     return (
       <div className="App">
         <h1>컴포넌트 재사용 연습!</h1>
-          <SearchBox handleChange={this.handleChange}/> 
-          <CardList monsters={filtered} />
+        {/* <SearchBox handleChange=정의한메소드 /> */}
+        {/* <CardList monsters=필터링 된 몬스터리스트 /> */}
       </div>
     );
   }
