@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchBox from "./components/SearchBox/SearchBox";
 import CardList from "./components/CardList/CardList";
-import "./App.css";
+import "./index.css";
 
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users

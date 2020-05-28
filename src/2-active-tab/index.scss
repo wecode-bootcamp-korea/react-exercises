@@ -1,0 +1,28 @@
+.wrapper {
+  width: 60%;
+  margin: 100px auto;
+  border: 1px solid black;
+  font-size: 30px;
+
+  .tabs {
+    display: flex;
+
+    > li {
+      width: 33.3%;
+      text-align: center;
+      border: 1px solid red;
+      padding: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+
+  .contents {
+    text-align: center;
+    font-size: 70px;
+    padding: 100px;
+  }
+}
