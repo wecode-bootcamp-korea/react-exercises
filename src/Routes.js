@@ -4,6 +4,7 @@ import Main from "./Main";
 import Monsters from "./1-monsters";
 import ActiveTab from "./2-active-tab";
 import LiftingStateUp from "./3-lifting-state-up";
+import UrlParameters from "./4-url-parameters";
 
 export default class Routes extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Routes extends Component {
           <Route exact path="/monsters" component={Monsters} />
           <Route exact path="/active-tab" component={ActiveTab} />
           <Route exact path="/lifting-state-up" component={LiftingStateUp} />
+          <Route exact path="/url-parameters" component={UrlParameters} />
         </Switch>
       </Router>
     );
