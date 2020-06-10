@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "../1-monsters/components/Card/Card";
+import Card from "../2-monsters/components/Card/Card";
 import "./index.scss";
 
 class index extends Component {
