@@ -1,0 +1,24 @@
+.onchange-wrapper {
+  width: 700px;
+  height: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid black;
+  font-size: 30px;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 50px;
+
+    button {
+      margin-top: 20px;
+    }
+  }
+
+  .contents {
+    text-align: center;
+    font-size: 70px;
+  }
+}
