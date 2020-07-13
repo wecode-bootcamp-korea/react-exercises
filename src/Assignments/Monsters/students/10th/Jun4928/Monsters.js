@@ -23,7 +23,8 @@ import "./Monsters.scss";
 class Monsters extends Component {
   state = {
     monsters: [],
-    userInput: ""
+    userInput: "",
+    searchInput: ""
   };
 
   // 데이터 로딩
@@ -36,15 +37,25 @@ class Monsters extends Component {
   }
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
+  onSearchBoxChange = (event) => {
+    this.setState({ searchInput: event.target.value });
+  }
 
   render() {
     // 필터링 로직
-    console.log(this.state.monsters);
+    const filteredMonsters = this.state.monsters.filter((monster) => {
+      const regexp = RegExp(this.state.searchInput, 'gi');
+      return monster.name.match(regexp);
+    }); 
+
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        {/* <SearchBox handleChange=정의한메소드 /> */}
-        <CardList monsters={this.state.monsters} /> 
+        <SearchBox 
+          handleChange={this.onSearchBoxChange}
+          value={this.state.searchInput}
+        />
+        <CardList monsters={filteredMonsters} /> 
       </div>
     );
   }
