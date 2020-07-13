@@ -27,6 +27,13 @@ class Monsters extends Component {
   };
 
   // 데이터 로딩
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({monsters: data});
+      });
+  }
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
 
