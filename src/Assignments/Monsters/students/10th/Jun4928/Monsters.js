@@ -39,12 +39,12 @@ class Monsters extends Component {
 
   render() {
     // 필터링 로직
-
+    console.log(this.state.monsters);
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
         {/* <SearchBox handleChange=정의한메소드 /> */}
-        {/* <CardList monsters=필터링 된 몬스터리스트 /> */}
+        <CardList monsters={this.state.monsters} /> 
       </div>
     );
   }
