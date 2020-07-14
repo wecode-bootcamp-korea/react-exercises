@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
+// import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
 
@@ -23,19 +23,29 @@ import "./Monsters.scss";
 class Monsters extends Component {
   state = {
     monsters: [],
-    userInput: ""
+    userInput: "",
   };
 
   // 데이터 로딩
+
+  callApi = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((result) => this.setState({ monsters: result }));
+  };
+
+  componentDidMount() {
+    this.callApi();
+  }
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
 
   render() {
     // 필터링 로직
-
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
+        <CardList monsters={this.state.monsters} />
         {/* <SearchBox handleChange=정의한메소드 /> */}
         {/* <CardList monsters=필터링 된 몬스터리스트 /> */}
       </div>
