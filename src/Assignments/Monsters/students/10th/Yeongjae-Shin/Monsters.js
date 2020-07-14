@@ -51,8 +51,8 @@ class Monsters extends Component {
 
   render() {
     const { monsters, userInput } = this.state;
-    const filterMonstersName = monsters.filter((monsters) => {
-      return monsters.name.toLowerCase().includes(userInput);
+    const filterMonstersName = monsters.filter((monster) => {
+      return monster.name.toLowerCase().includes(userInput.toLowerCase());
     });
 
     return (
