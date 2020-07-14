@@ -23,21 +23,33 @@ import "./Monsters.scss";
 class Monsters extends Component {
   state = {
     monsters: [],
-    userInput: ""
+    userInput: "",
   };
 
   // 데이터 로딩
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((result) => result.json())
+      .then((result) => this.setState({ monsters: result }));
+  }
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
-
+  handleChange = (e) => {
+    this.setState({ userInput: e.target.value });
+  };
   render() {
-    // 필터링 로직
+    const { monsters, userInput } = this.state;
+    const filterMonster = monsters.filter((monsters) => {
+      return monsters.name.toLowerCase().includes(userInput);
+    });
 
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
         {/* <SearchBox handleChange=정의한메소드 /> */}
+        <SearchBox handleChange={this.handleChange} />
         {/* <CardList monsters=필터링 된 몬스터리스트 /> */}
+        <CardList monsters={filterMonster} />
       </div>
     );
   }
