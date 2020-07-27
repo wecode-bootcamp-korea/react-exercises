@@ -7,7 +7,7 @@ export default class Main extends Component {
         <div>MAIN PAGE</div>
         <div>MAIN PAGE</div>
         <div>MAIN PAGE</div>
-        <div>MAIN PAGE</div>
+        <div>MAIN TEST</div>
         <div>MAIN PAGE</div>
         <div>MAIN PAGE</div>
         <div>MAIN PAGE</div>
