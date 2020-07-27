@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./SearchBox.scss";
+import Card from "../Card/Card";
 
 class SearchBox extends Component {
   render() {

@@ -3,6 +3,8 @@ import "./SearchBox.scss";
 
 class SearchBox extends Component {
   render() {
+    //const { monsters } = this.props.data;
+
     return (
       <input
         className="search"
