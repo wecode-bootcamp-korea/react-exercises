@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-import Card from "../2-monsters/components/Card/Card";
-import "./UrlParameters.scss";
+import Card from "./Components/Card/Card";
+import "./MonsterDetail.scss";
 
-class UrlParameters extends Component {
+class MonsterDetail extends Component {
   state = {
     user: {}
   };
 
-  componentDidMount() {}
-
   render() {
     return (
       <div className="url-parameters">
-        <Card id={1} name="James" email="hello@gmail.com" />
+        <Card id={1} name="손승현" email="sonsh@gracefulrain.co" />
         <div className="btn-wrapper">
           <button onClick={() => console.log("PREVIOUS")}>Previous</button>
           <button onClick={() => console.log("NEXT")}>Next</button>
@@ -22,4 +20,4 @@ class UrlParameters extends Component {
   }
 }
 
-export default UrlParameters;
+export default MonsterDetail;

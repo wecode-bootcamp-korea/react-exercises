@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import './Card.scss';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import "./Card.scss";
 
 class Card extends Component {
   render() {
     return (
       <div className="card-container">
         <img
-          alt="몬스터 그림"
           src={`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
+          alt=""
         />
         <h2>{this.props.name}</h2>
         <p>{this.props.email}</p>
@@ -16,4 +17,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default withRouter(Card);
