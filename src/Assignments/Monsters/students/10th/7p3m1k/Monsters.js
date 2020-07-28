@@ -36,6 +36,7 @@ class Monsters extends Component {
   handleChange = (e) => {
     this.setState({ userInput: e.target.value });
   };
+
   render() {
     // 필터링 로직
     const { monsters, userInput } = this.state;
@@ -49,7 +50,7 @@ class Monsters extends Component {
         {/* <SearchBox handleChange=정의한메소드 /> */}
         <SearchBox handleChange={this.handleChange} />
         {/* <CardList monsters=필터링 된 몬스터리스트 /> */}
-        <CardList monsters={res} />
+        <CardList monsters={this.state.monsters} />
       </div>
     );
   }

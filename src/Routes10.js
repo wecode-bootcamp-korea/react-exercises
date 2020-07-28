@@ -22,6 +22,8 @@ import Rudqo14 from "./Assignments/Monsters/students/10th/rudqo14/Monsters";
 import Seo337dc from "./Assignments/Monsters/students/10th/seo337dc/Monsters";
 import Taeheech from "./Assignments/Monsters/students/10th/taeheech/Monsters";
 import Yojuyoon from "./Assignments/Monsters/students/10th/yojuyoon/Monsters";
+import OnChange from "./Lectures/OnChange/OnChange";
+import ActiveTab from "./Lectures/ActiveTab/ActiveTab";
 
 export default class Routes extends Component {
   render() {
@@ -50,6 +52,8 @@ export default class Routes extends Component {
           <Route exact path="/seo337dc" component={Seo337dc} />
           <Route exact path="/taeheech" component={Taeheech} />
           <Route exact path="/yojuyoon" component={Yojuyoon} />
+          <Route exact path="/onchange" component={OnChange} />
+          <Route exact path="/activetab" component={ActiveTab} />
         </Switch>
       </Router>
     );
