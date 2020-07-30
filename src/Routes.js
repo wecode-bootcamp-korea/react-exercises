@@ -9,6 +9,7 @@ export default class Routes extends Component {
       <Router>
         <Switch>
           <Route exact path="/UrlParameters" component={UrlParameters} />
+          <Route exact path="/UrlParameters/:id" component={MonsterDetail} />
         </Switch>
       </Router>
     );

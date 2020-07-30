@@ -18,6 +18,7 @@ class CardList extends Component {
             id={monster.id}
             name={monster.name}
             email={monster.email}
+            clickHandler=
           />
         ))}
       </div>
