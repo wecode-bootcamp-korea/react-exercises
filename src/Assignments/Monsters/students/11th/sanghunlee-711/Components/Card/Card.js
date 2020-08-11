@@ -4,8 +4,8 @@ import "./Card.scss";
 /***********************************************************
   Card 컴포넌트 구조
     <img src=이미지주소 alt="">
-	  <h2>Name</h2>
-	  <p>Email</p>
+	<h2>Name</h2>
+	<p>Email</p>
 
   Card 컴포넌트에서 props로 받아야하는 데이터는 id, name, email 입니다.
   props에서 해당하는 키값들을 추출하여 위와 같은 구조로 만들어주세요!
@@ -22,11 +22,14 @@ class Card extends Component {
     return (
       <div className="card-container">
         <img
-          src="https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg"
-          alt=""
+          id = {this.props.id}
+          name = {this.props.name}
+          email = {this.props.email}
+          src= {`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
+          alt="itmightbeWeirdIMG"
         />
-        <h2>Name</h2>
-        <p>Email</p>
+        <h2>{this.props.name}</h2>
+        <p>{this.props.email}</p>
       </div>
     );
   }
