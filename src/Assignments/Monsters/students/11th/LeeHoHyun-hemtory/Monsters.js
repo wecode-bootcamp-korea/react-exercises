@@ -39,16 +39,17 @@ class Monsters extends Component {
   }
 
   render() {
-    let temp = this.state.monsters.filter(mon => {
-      return mon.name.toLowerCase().includes(this.state.userInput.toLowerCase());
-    });
+    let filterMonsters = this.state.monsters.filter(mon => 
+      (mon.name.toLowerCase().includes(this.state.userInput.toLowerCase()))
+    );
+    
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
         {/* <SearchBox handleChange=정의한메소드 /> */}
         <SearchBox handleChange={this.handleChange}/>
         {/* <CardList monsters=몬스터리스트 /> */}
-        <CardList monsters={temp}/>
+        <CardList monsters={filterMonsters}/>
       </div>
     );
   }
