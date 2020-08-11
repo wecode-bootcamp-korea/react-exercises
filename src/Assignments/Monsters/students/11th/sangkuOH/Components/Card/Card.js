@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Card.scss";
-
 /***********************************************************
   Card 컴포넌트 구조
     <img src=이미지주소 alt="">
@@ -15,18 +14,17 @@ import "./Card.scss";
   위 주소의 숫자 부분을 props로 내려받은 id로 대체하셔야 합니다.
 
   Name 과 Email 도 마찬가지입니다.
-***********************************************************/
-
+****************f*******************************************/
 class Card extends Component {
   render() {
     return (
       <div className="card-container">
         <img
-          src="https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg"
+          src={`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
           alt=""
         />
-        <h2>Name</h2>
-        <p>Email</p>
+        <h2>{this.props.name}</h2>
+        <p>{this.props.email}</p>
       </div>
     );
   }
