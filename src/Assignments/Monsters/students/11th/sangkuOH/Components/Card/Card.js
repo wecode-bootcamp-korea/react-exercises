@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Card.scss";
-
 /***********************************************************
   Card 컴포넌트 구조
     <img src=이미지주소 alt="">
@@ -16,7 +15,6 @@ import "./Card.scss";
 
   Name 과 Email 도 마찬가지입니다.
 ****************f*******************************************/
-
 class Card extends Component {
   render() {
     return (

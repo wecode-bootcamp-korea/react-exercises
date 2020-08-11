@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
-
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
 
@@ -19,7 +18,6 @@ import "./Monsters.scss";
       소문자로 바꾼 monster.name 값과 userInput값을 비교.
       filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
 ***********************************************************/
-
 class Monsters extends Component {
   constructor(props){
     super(props);
@@ -29,34 +27,23 @@ class Monsters extends Component {
       filteredMonster: []
     }
   }
-
   // 데이터 로딩
   componentDidMount(){
   fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => res.json())
     .then(res => this.setState({monsters: res}))
   }
-  
+  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
   handleChange = (e) => {
     this.setState({
-      userInput: e.target.value
-    }, this.monsterLists)
+      userInput: e.target.value,
+      filteredMonster : this.state.monsters.filter(({name}) => name.toLowerCase().includes(e.target.value))
+    })
   }
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-
-  monsterLists = () => {
-      this.setState({filteredMonster : this.state.monsters.filter(({name}) => name.toLowerCase().includes(this.state.userInput))});
-  }
-    
-  
   // 3. 필터링 로직 구현 (filter 메소드 활용)
   //     여기서 비교 대상은 monster 객체의 name 값입니다.
   //     소문자로 바꾼 monster.name 값과 userInput값을 비교.
   //     filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
-
-
-
-
   render() {
     return (
       <div className="Monsters">
