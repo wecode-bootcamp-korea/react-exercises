@@ -13,13 +13,13 @@ class CardList extends Component {
   render() {
     return (
       <div className="card-list">
-        {this.props.monsters.map((filtered, i) => {
+        {this.props.monsters.map((element, idx) => {
           return (
             <Card
-              key={i}
-              id={filtered.id}
-              name={filtered.name}
-              email={filtered.email}
+              key={idx}
+              id={element.idx}
+              name={element.name}
+              email={element.email}
             />
           );
         })}
