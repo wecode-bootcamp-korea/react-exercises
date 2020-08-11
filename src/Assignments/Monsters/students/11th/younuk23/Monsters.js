@@ -33,25 +33,23 @@ class Monsters extends Component {
       .then((response) => this.setState({ monsters: response }));
   }
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-  serach = (e) => {
+  handleChange = (e) => {
     this.setState({ userInput: e.target.value });
   };
 
   serachName = () => {
     return this.state.monsters.filter((el) => {
-      return el.name
-        .toLowerCase()
-        .includes(this.state.userInput.toLocaleLowerCase());
+      return el.name.toLowerCase().includes(this.state.userInput.toLowerCase());
     });
   };
 
   render() {
-    let result = this.serachName();
+    const searchResult = this.serachName();
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        <SearchBox handleChange={this.serach} />
-        <CardList monsters={result} />
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monsters={searchResult} />
       </div>
     );
   }
