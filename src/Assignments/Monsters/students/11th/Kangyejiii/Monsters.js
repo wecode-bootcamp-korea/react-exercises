@@ -34,7 +34,6 @@ class Monsters extends Component {
     fetch("https://jsonplaceholder.typicode.com/users")
     .then(res=>res.json())
     .then(res=>this.setState({monsters : res}));
-
   }
 
   handleChange = (e) => {
@@ -42,9 +41,13 @@ class Monsters extends Component {
     }
 
     handleSearch = () => {
-      let result=this.state.monsters.filter((el)=>(el.name.toLowerCase().includes(this.state.userInput)));
-        return result ;
+      let result=this.state.monsters.filter((el)=>(el.name.toLowerCase().includes(this.state.userInput.toLowerCase())));
       
+      if(!this.state.userInput.trim("")||result.length===0) {
+        return false;
+      } else {
+        return result;
+      } 
     }
 
   render() {
@@ -53,10 +56,9 @@ class Monsters extends Component {
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
         <SearchBox handleChange={this.handleChange}/>
-        <CardList  monsters={result}/>
+        {result?  <CardList  monsters={result}/> : <div><h2>검색해보세요:-D</h2></div> }
         <h2>----필수구현사항 카드 리스트----</h2>
-        <CardList  monsters={this.state.monsters}/> 
-        
+        <CardList  monsters={this.state.monsters}/>     
     </div>
     );
   }
