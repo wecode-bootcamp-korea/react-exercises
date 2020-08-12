@@ -12,11 +12,10 @@ import "./CardList.scss";
 class CardList extends Component {
   componentDidMount() {}
   render() {
-    console.log(this.props.monsters);
     return (
       <div className="card-list">
-        {this.props.monsters.map((el) => (
-          <Card dataFromCardList={el} />
+        {this.props.monsters.map((el, idx) => (
+          <Card key={idx} dataFromCardList={el} />
         ))}
       </div>
     );
