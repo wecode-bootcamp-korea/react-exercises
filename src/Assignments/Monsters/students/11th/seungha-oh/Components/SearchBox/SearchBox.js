@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../Monsters";
 import "./SearchBox.scss";
 
 class SearchBox extends Component {

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "../CardList/CardList";
+import "../CardList/CardList.scss";
 import "./Card.scss";
 
 /***********************************************************
@@ -22,11 +24,11 @@ class Card extends Component {
     return (
       <div className="card-container">
         <img
-          src="https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg"
+          src={`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
           alt=""
         />
-        <h2>Name</h2>
-        <p>Email</p>
+        <h2>{this.props.name}</h2>
+        <p>{this.props.email}</p>
       </div>
     );
   }
