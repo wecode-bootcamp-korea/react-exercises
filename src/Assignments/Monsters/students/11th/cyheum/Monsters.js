@@ -30,11 +30,11 @@ class Monsters extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((res) => {
-        return this.setState({
+      .then((res) =>
+        this.setState({
           monsters: res,
-        });
-      });
+        })
+      );
   }
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
