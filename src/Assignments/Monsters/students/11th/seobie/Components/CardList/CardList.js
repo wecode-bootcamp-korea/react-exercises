@@ -10,7 +10,6 @@ import "./CardList.scss";
 ***********************************************************/
 
 class CardList extends Component {
-  componentDidMount() {}
   render() {
     return (
       <div className="card-list">
