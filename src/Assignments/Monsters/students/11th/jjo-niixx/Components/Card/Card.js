@@ -22,11 +22,11 @@ class Card extends Component {
     return (
       <div className="card-container">
         <img
-          src={`https://robohash.org/${this.props.filteredCard.id}?set=set2&size=180x180`}
+          src={`https://robohash.org/${this.props.monsterCard.id}?set=set2&size=180x180`}
           alt=""
         />
-        <h2>{this.props.filteredCard.name}</h2>
-        <p>{this.props.filteredCard.email}</p>
+        <h2>{this.props.monsterCard.name}</h2>
+        <p>{this.props.monsterCard.email}</p>
       </div>
     );
   }

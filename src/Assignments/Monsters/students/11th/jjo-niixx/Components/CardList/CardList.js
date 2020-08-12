@@ -13,9 +13,11 @@ class CardList extends Component {
   render() {
     return (
       <div className="card-list">
-        {this.props.monsters.map(filteredList => (
+        {this.props.monsters.map((monster, idx) => (
           <Card 
-            filteredCard = {filteredList}/>
+            monsterCard = {monster}
+            key = {idx} 
+          />
         ))}
       </div>
     );
