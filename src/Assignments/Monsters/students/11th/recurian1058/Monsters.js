@@ -27,15 +27,23 @@ class Monsters extends Component {
   };
 
   // 데이터 로딩
-
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(res => this.setState({ monsters: res }));
+  }
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-
+  handleChange = e => {
+    this.setState({userInput:e.target.value})
+  }
   render() {
+    let monstersNameFilter = this.state.monsters.filter(monster => monster.name.toLowerCase().includes(this.state.userInput.toLowerCase()))
+
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        {/* <SearchBox handleChange=정의한메소드 /> */}
-        {/* <CardList monsters=몬스터리스트 /> */}
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monsters={monstersNameFilter} />
       </div>
     );
   }
