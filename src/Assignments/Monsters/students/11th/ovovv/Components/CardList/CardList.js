@@ -11,7 +11,16 @@ import "./CardList.scss";
 
 class CardList extends Component {
   render() {
-    return <div className="card-list"></div>;
+    return <div className="card-list" >
+      {this.props.monsters.map((el, index) => {
+        return(
+          <Card key={index} 
+            id={el.id} 
+            name={el.name} 
+            email={el.email}/>
+        )
+      })}
+      </div>
   }
 }
 
