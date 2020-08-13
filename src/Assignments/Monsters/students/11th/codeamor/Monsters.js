@@ -28,7 +28,7 @@ class Monsters extends Component {
 
   // 최초 렌더링 이후 한 번만 호출됨
   componentDidMount() {
-    fetch(`https://jsonplaceholder.typicode.com/users`)
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json()) // json body to js
       .then((json) => {
         this.setState({
@@ -44,7 +44,7 @@ class Monsters extends Component {
   render() {
     const { monsters, userInput } = this.state;
     let filter = monsters.filter((monster) =>
-      monster.name.toLowerCase().includes(userInput)
+      monster.name.toLowerCase().includes(userInput.toLowerCase())
     );
     return (
       <div className="Monsters">

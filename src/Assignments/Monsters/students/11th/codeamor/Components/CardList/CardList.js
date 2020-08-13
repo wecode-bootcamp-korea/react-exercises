@@ -10,16 +10,15 @@ import "./CardList.scss";
 class CardList extends Component {
   render() {
     const { monsters } = this.props;
-    console.log(this.props.monsters);
     return (
       <div className="card-list">
-        {monsters.map((element, idx) => {
+        {monsters.map((monster, idx) => {
           return (
             <Card
               key={idx}
-              id={element.id}
-              name={element.name}
-              email={element.email}
+              id={monster.id}
+              name={monster.name}
+              email={monster.email}
             />
           );
         })}
