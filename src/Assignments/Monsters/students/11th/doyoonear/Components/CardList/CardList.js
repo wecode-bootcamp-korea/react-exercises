@@ -7,7 +7,7 @@ class CardList extends Component {
   render() {
     return <div className="card-list">
       {this.props.filtered.map
-        ((obj) => <Card mons={obj} /> )}
+        ((obj, index) => <Card key={index} mons={obj} /> )}
     </div>;
   }
 }
