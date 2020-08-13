@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
 
@@ -11,11 +10,6 @@ import "./CardList.scss";
 ***********************************************************/
 
 class CardList extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     return (
       <div className="card-list">
