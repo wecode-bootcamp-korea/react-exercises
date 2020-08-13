@@ -23,10 +23,15 @@ import "./Monsters.scss";
 class Monsters extends Component {
   state = {
     monsters: [],
-    userInput: ""
+    userInput: "",
   };
 
   // 데이터 로딩
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((response) => this.setState({ userInput: response }));
+  }
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
