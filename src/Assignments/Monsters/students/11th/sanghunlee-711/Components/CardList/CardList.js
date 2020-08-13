@@ -7,7 +7,7 @@ class CardList extends Component {
   render() { 
     return(
     <div className="card-list">
-          {this.props.monsters.map(({id, name, email}) => <Card id = {id} name = {name} email ={email}/> )}
+          {this.props.monsters.map(({ id, name, email }) => <Card id={id} name={name} email={email} /> )}
     </div>
     )
   }

@@ -34,20 +34,15 @@ class Monsters extends Component {
   componentDidMount (){
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
-      .then(response => this.setState({monsters : response}, this.monsterFilter));
+      .then(response => this.setState({monsters : response}));
   }
   
   handleChange = (e) => {
     this.setState({userInput: e.target.value}, this.monsterFilter);
-  }
-  
-  monsterFilter = () => {
-    console.log("what");
-    this.setState({monsterFiltering : this.state.monsters.filter(({name}) => name.toLowerCase().includes(this.state.userInput))});
+    this.setState({monsterFiltering : this.state.monsters.filter(({name}) => name.toLowerCase().includes(e.target.value))})
   }
 
   render() {
-    console.log("IN MONSTERS",this.state.monsterFiltering)
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
