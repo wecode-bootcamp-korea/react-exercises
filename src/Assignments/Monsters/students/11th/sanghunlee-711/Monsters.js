@@ -30,13 +30,13 @@ class Monsters extends Component {
       monsterFiltering:[],
     };
   }
-  // 데이터 로딩
+
   componentDidMount (){
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(response => this.setState({monsters : response}, this.monsterFilter));
   }
-    // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  
   handleChange = (e) => {
     this.setState({userInput: e.target.value}, this.monsterFilter);
   }
