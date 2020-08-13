@@ -25,6 +25,8 @@ class Monsters extends Component {
 
     this.state = {
       monsters: [],
+      userInput: "",
+      filteredMonsters: [],
     };
   }
 
@@ -32,21 +34,24 @@ class Monsters extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((res) => this.setState({ monsters: res }));
-    // .then((res) => this.setState({ monsters: res }));
+      .then((res) => this.setState({ monsters: res, filteredMonsters: res }));
   }
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-  // handleChange = (e) => {
-  //   this.setState({ userInput: e.target.value });
-  // };
+  handleChange = (e) => {
+    this.setState({
+      userInput: e.target.value,
+      filteredMonsters: this.state.monsters.filter((monster) =>
+        monster.name.toLowerCase().includes(e.target.value.toLowerCase())
+      ),
+    });
+  };
 
   render() {
-    // console.log(this.state.userInput);
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        {/* <SearchBox handleChange=정의한메소드 /> */}
-        <CardList monsters={this.state.monsters} />
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monsters={this.state.filteredMonsters} />
       </div>
     );
   }
