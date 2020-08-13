@@ -21,24 +21,55 @@ import "./Monsters.scss";
 ***********************************************************/
 
 class Monsters extends Component {
-  state = {
-    monsters: [],
-    userInput: ""
-  };
+	state = {
+		monsters: [],
+		userInput: "",
+	};
 
-  // 데이터 로딩
+	// 데이터 로딩
 
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+	// SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
-  render() {
-    return (
-      <div className="Monsters">
-        <h1>컴포넌트 재사용 연습!</h1>
-        {/* <SearchBox handleChange=정의한메소드 /> */}
-        {/* <CardList monsters=몬스터리스트 /> */}
-      </div>
-    );
-  }
+	componentDidMount() {
+		fetch("https://jsonplaceholder.typicode.com/users")
+			.then((res) => res.json())
+			.then((res) => this.setState({ monsters: res }));
+	}
+
+	handleChange = (e) => {
+		this.setState({ userInput: e.target.value });
+	};
+
+	handleSearch = () => {
+		let result = this.state.monsters.filter((el) =>
+			el.name.toLowerCase().includes(this.state.userInput.toLowerCase())
+		);
+
+		if (!this.state.userInput.trim() || !result.length) {
+			return false;
+		} else {
+			return result;
+		}
+	};
+
+	render() {
+		const result = this.handleSearch();
+		return (
+			<div className="Monsters">
+				<h1>컴포넌트 재사용 연습!</h1>
+				<SearchBox handleChange={this.handleChange} />
+				{result ? (
+					<CardList monsters={result} />
+				) : (
+					<div>
+						<h2>검색해보세요:-D</h2>
+					</div>
+				)}
+				<h2>----필수구현사항 카드 리스트----</h2>
+				<CardList monsters={this.state.monsters} />
+			</div>
+		);
+	}
 }
 
 export default Monsters;
