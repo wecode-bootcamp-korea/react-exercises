@@ -24,19 +24,19 @@ class Monsters extends Component {
   state = {
     monsters: [],
     userInput: "",
-    filter: [],
+    filteredMonsters: [],
   };
 
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
-    .then(response => this.setState({monsters:response, filter: response}))
+    .then(response => this.setState({monsters:response, filteredMonsters: response}))
   }
 
-  handleChange = (e) => {
+  hendleChange = (e) => {
 
     this.setState({userInput: e.target.value,
-                  filter: this.state.monsters.filter((monster) =>
+                  filteredMonsters: this.state.monsters.filter((monster) =>
                   monster.name.toLowerCase().includes(e.target.value.toLowerCase()))});
   }
 
@@ -45,8 +45,8 @@ class Monsters extends Component {
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        <SearchBox hendleChange={this.handleChange} />
-        <CardList monsters={this.state.filter} />
+        <SearchBox hendleChange={this.hendleChange} />
+        <CardList monsters={this.state.filteredMonsters} />
       </div>
     );
   }
