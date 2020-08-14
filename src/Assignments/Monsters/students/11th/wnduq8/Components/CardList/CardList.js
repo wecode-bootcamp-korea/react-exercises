@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Monsters from "../../Monsters";
+import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
 
@@ -11,8 +11,13 @@ import "./CardList.scss";
 
 class CardList extends Component {
   render() {
-    return <div className="card-list"></div>;
+    return (
+      <div className="card-list">
+        {this.props.monsters.map(({ id, name, email }, idx) => (
+          <Card key={idx} id={id} name={name} email={email} />
+        ))}
+      </div>
+    );
   }
 }
-
 export default CardList;
