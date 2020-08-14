@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
@@ -8,30 +10,29 @@ class Monsters extends Component {
   state = {
     monsters: [],
     userInput: "",
-  }
+  };
 
   componentDidMount = () => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(res => this.setState({monsters: res}))
-  }
-  
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((res) => this.setState({ monsters: res }));
+  };
+
   handleChange = (e) => {
     this.setState({
       userInput: e.target.value,
-    })
-  }
+    });
+  };
 
   render() {
-    const filtered = this.state.monsters.filter(el => el.name.toLowerCase().includes(this.state.userInput.toLowerCase()));
+    const filtered = this.state.monsters.filter((el) =>
+      el.name.toLowerCase().includes(this.state.userInput.toLowerCase())
+    );
 
     return (
       <div className="Monsters">
-        <SearchBox 
-          handleChange={this.handleChange} />
-        <CardList 
-          mons1={this.state.monsters}
-          filtered={filtered} />
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monsters={this.state.monsters} filtered={filtered} />
       </div>
     );
   }
