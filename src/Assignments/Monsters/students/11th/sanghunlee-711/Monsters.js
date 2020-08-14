@@ -37,10 +37,10 @@ class Monsters extends Component {
       .then(response => this.setState({monsters : response}));
   }
   
-  handleChange = (e) => {
-    this.setState({userInput: e.target.value}, this.monsterFilter);
-    this.setState({monsterFiltering : this.state.monsters.filter(({name}) => name.toLowerCase().includes(e.target.value))})
+  handleChange = (e) =>{
+    this.setState({userInput : e.target.value, monsterFiltering: this.state.monsters.filter(({name})=> name.toLowerCase().includes(e.target.value.toLowerCase()))})
   }
+    
 
   render() {
     return (
