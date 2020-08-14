@@ -11,7 +11,20 @@ import "./CardList.scss";
 
 class CardList extends Component {
   render() {
-    return <div className="card-list"></div>;
+    return (
+      <div className="card-list">
+        {this.props.monsters.map((mObj) => {
+          return (
+            <Card
+              key={mObj.phone}
+              id={mObj.id}
+              name={mObj.name}
+              email={mObj.email}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
 
