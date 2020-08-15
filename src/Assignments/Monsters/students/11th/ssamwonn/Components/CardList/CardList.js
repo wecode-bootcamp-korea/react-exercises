@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Monsters from "../../Monsters";
+import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
 
@@ -9,9 +9,16 @@ import "./CardList.scss";
   Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
 ***********************************************************/
 
+
+
 class CardList extends Component {
   render() {
-    return <div className="card-list"></div>;
+    console.log(this.props.monsters)
+    return (
+      <div className="card-list">
+        {this.props.monsters.map(({ id, name, email }) => <Card id={id} name={name} email={email} />)}
+      </div>
+    )
   }
 }
 
