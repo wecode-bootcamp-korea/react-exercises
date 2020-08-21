@@ -14,4 +14,4 @@
 <br />
 
 ## Assignments
-- Monsters =
+- Monsters
