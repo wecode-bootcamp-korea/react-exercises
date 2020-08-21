@@ -7,6 +7,7 @@ class StateProps extends Component {
       <div className="state">
         <div className="state-header">State / Props 연습!!</div>
         <div className="state-contents">CONTENTS</div>
+        <button>ho</button>
       </div>
     );
   }

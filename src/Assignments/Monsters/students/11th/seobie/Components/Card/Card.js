@@ -20,13 +20,13 @@ import "./Card.scss";
 class Card extends Component {
   render() {
     return (
-      <div className="card-container">
+      <div>
         <img
-          src="https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg"
+          src={`https://robohash.org/${this.props.dataFromCardList.id}?set=set2&size=180x180`}
           alt=""
         />
-        <h2>Name</h2>
-        <p>Email</p>
+        <h2>{this.props.dataFromCardList.name}</h2>
+        <p>{this.props.dataFromCardList.email}</p>
       </div>
     );
   }
