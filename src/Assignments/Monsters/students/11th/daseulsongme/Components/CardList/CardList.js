@@ -9,12 +9,6 @@ import "./CardList.scss";
 ***********************************************************/
 
 class CardList extends Component {
-  state = {
-    id: "",
-    name: "",
-    email: "",
-  };
-
   render() {
     return (
       <div className="card-list">
