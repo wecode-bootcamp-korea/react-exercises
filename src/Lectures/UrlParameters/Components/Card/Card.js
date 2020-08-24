@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import "./Card.scss";
 
 class Card extends Component {
@@ -17,4 +16,4 @@ class Card extends Component {
   }
 }
 
-export default withRouter(Card);
+export default Card;

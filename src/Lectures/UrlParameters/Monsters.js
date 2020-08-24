@@ -48,7 +48,7 @@ class Monsters extends Component {
 
     return (
       <div className="Monsters">
-        <h1>컴포넌트 재사용 연습!</h1>
+        <h1>Mini Project - Monsters</h1>
         <SearchBox handleChange={this.handleChange} />
         <CardList monsters={filteredMonsters} />
       </div>
