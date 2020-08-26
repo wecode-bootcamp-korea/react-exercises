@@ -13,6 +13,7 @@ import "./Photos.scss";
 
   - 데이터는 public/photos 폴더 내에 있는 json 파일을 활용해주세요.
   - limit는 10으로 고정되어 있고, offset을 바꿔가며 요청을 보낸다는 가정입니다.
+  - componentDidUpdate 라이프 사이클 메서드를 사용해주세요.
   - 선택된 페이지의 버튼은 Buttons.scss에 준비된,
     selected 클래스명을 활용해 현재 페이지와 일치할 경우 스타일링 될 수 있도록 해주세요.
 
@@ -27,10 +28,18 @@ class Photos extends Component {
 
   // 데이터 로딩
   componentDidMount() {
+    this.fetchPhotos();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("photos 업데이트!");
+  }
+
+  fetchPhotos = (offset) => {
     fetch("http://localhost:3000/photos.json")
       .then((res) => res.json())
       .then((res) => this.setState({ photos: res }));
-  }
+  };
 
   idxHandler = (e) => {
     this.setState({ currentIdx: e.target.dataset.idx });
