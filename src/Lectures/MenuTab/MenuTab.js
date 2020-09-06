@@ -3,7 +3,6 @@ import First from "./components/First";
 import Second from "./components/Second";
 import Third from "./components/Third";
 import "./MenuTab.scss";
-ㄴ;
 
 //변하는 값이 아니기 때문에 클래스 밖에서 변수 선언
 const obj = {

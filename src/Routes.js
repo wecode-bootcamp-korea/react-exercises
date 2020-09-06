@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Monsters from './Assignments/Monsters/Monsters'
 import Pagination from "./Lectures/Pagination/Photos";
 import UrlParameters from "./Lectures/UrlParameters/Monsters";
 import MonsterDetail from "./Lectures/UrlParameters/MonsterDetail";
@@ -12,6 +13,7 @@ export default class Routes extends Component {
     return (
       <Router>
         <Switch>
+          <Route exact path="/" component={Monsters} />
           <Route exact path="/StateProps" component={StateProps} />
           <Route exact path="/onChange" component={OnChange} />
           <Route exact path="/MenuTab" component={MenuTab} />
