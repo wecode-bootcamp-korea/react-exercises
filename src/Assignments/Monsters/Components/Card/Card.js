@@ -20,14 +20,7 @@ import "./Card.scss";
 class Card extends Component {
   render() {
     return (
-      <div className="card-container">
-        <img
-          src="https://live.staticflickr.com/4561/38054606355_26429c884f_b.jpg"
-          alt=""
-        />
-        <h2>Name</h2>
-        <p>Email</p>
-      </div>
+      <div className="card-container"></div>
     );
   }
 }
