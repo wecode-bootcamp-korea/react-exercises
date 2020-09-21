@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Pagination from "./Lectures/Pagination/Photos";
+import Pagination from "./Lectures/Pagination/Coffee";
 import UrlParameters from "./Lectures/UrlParameters/Monsters";
 import MonsterDetail from "./Lectures/UrlParameters/MonsterDetail";
 import StateProps from "./Lectures/StateProps/StateProps";
@@ -16,7 +16,8 @@ export default class Routes extends Component {
           <Route exact path="/onChange" component={OnChange} />
           <Route exact path="/MenuTab" component={MenuTab} />
           <Route exact path="/monsters" component={UrlParameters} />
-          <Route exact path="/monsters/detail" component={MonsterDetail} />
+          <Route exact path="/monsters/detail/" component={MonsterDetail} />
+          <Route exact path="/monsters/detail/:id" component={MonsterDetail} />
           <Route exact path="/Pagination" component={Pagination} />
         </Switch>
       </Router>

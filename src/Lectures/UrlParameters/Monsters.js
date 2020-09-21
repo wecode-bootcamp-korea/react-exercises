@@ -23,18 +23,18 @@ import "./Monsters.scss";
 class Monsters extends Component {
   state = {
     monsters: [],
-    userInput: ""
+    userInput: "",
   };
 
   // 데이터 로딩
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(res => this.setState({ monsters: res }));
+      .then((res) => res.json())
+      .then((res) => this.setState({ monsters: res }));
   }
 
   // SearchBox에 props로 넘겨줄 handleChange 메소드 정의
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ userInput: e.target.value });
   };
 
@@ -42,7 +42,7 @@ class Monsters extends Component {
     const { monsters, userInput } = this.state;
 
     // 필터링 로직
-    const filteredMonsters = monsters.filter(monster => {
+    const filteredMonsters = monsters.filter((monster) => {
       return monster.name.toLowerCase().includes(userInput.toLowerCase());
     });
 

@@ -4,16 +4,17 @@ import "./CardList.scss";
 
 class CardList extends Component {
   render() {
-    const { photos } = this.props;
+    const { coffee } = this.props;
 
     return (
       <div className="card-list">
-        {photos.map((photo) => {
+        {coffee.map((el) => {
           return (
             <Card
-              key={photo.id}
-              title={photo.title}
-              thumbnailUrl={photo.thumbnailUrl}
+              key={el.id}
+              title={el.korean_name}
+              thumbnailUrl={el.thumbnail}
+              description={el.description}
             />
           );
         })}

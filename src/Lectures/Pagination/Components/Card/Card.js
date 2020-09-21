@@ -7,6 +7,7 @@ class Card extends Component {
       <div className="card-container">
         <img src={this.props.thumbnailUrl} alt="" />
         <p>{this.props.title}</p>
+        <p dangerouslySetInnerHTML={{ __html: this.props.description }} />
       </div>
     );
   }
