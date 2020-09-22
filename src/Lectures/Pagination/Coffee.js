@@ -12,7 +12,6 @@ import "./Coffee.scss";
   영상에서 공부한 offset, limit 개념을 활용하여 페이지네이션을 구현해주세요.
 
   - 쿼리스트링을 사용해 limit와, offset을 바꿔가며 요청을 보내보세요.
-  - componentDidUpdate 라이프 사이클 메서드를 사용해주세요. (hint: withRouter, prevProps)
   - 선택된 페이지의 버튼은 Buttons.scss에 준비된,
     selected 클래스명을 활용해 현재 페이지와 일치할 경우 스타일링 될 수 있도록 해주세요.
 
@@ -27,33 +26,26 @@ class Coffee extends Component {
 
   // 데이터 로딩
   componentDidMount() {
-    this.fetchCoffee();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("coffee 업데이트!");
-  }
-
-  fetchCoffee = (offset) => {
-    const LIMIT = 10;
-
     fetch("http://localhost:8000/drinks")
       .then((res) => res.json())
       .then((res) => this.setState({ coffee: res }));
-  };
+  }
 
-  idxHandler = (e) => {
-    this.setState({ currentIdx: e.target.dataset.idx });
+  fetchCoffee = (e) => {
+    const LIMIT = 10;
+    const offset = e?.target.dataset.idx;
+
+    fetch();
   };
 
   render() {
     const { coffee, currentIdx } = this.state;
-    const { idxHandler } = this;
+    const { fetchCoffee } = this;
 
     return (
       <div className="Photos">
         <h1>Mini Project - Pagination</h1>
-        <Buttons currentIdx={currentIdx} idxHandler={idxHandler} />
+        <Buttons currentIdx={currentIdx} fetchCoffee={fetchCoffee} />
         <CardList coffee={coffee} />
       </div>
     );
