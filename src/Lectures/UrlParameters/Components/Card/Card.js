@@ -4,14 +4,8 @@ import "./Card.scss";
 
 class Card extends Component {
   render() {
-    console.log(this.props);
     return (
-      <div
-        className="card-container"
-        onClick={() =>
-          this.props.history.push(`/monsters/detail/${this.props.id}`)
-        }
-      >
+      <div className="card-container">
         <img
           src={`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
           alt=""
