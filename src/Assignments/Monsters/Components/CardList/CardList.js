@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import Monsters from "../../Monsters";
 import Card from "../Card/Card";
-import "./CardList.scss";
+// import "./CardList.scss";
 
 /***********************************************************
   Card 컴포넌트를 import 한 뒤, props로 내려받은 데이터에 
@@ -10,8 +10,20 @@ import "./CardList.scss";
 ***********************************************************/
 
 class CardList extends Component {
+  constructor() {
+    super();
+  }
+
   render() {
-    return <div className="card-list"></div>;
+    const { monsters } = this.props;
+    console.log(this.props.monsters);
+    return <div className="card-list">
+      {monsters.map((el) => {
+        return (
+          <Card key={el.id} id={el.id} name={el.name} email={el.email} />
+        )
+      })}
+    </div>;
   }
 }
 
