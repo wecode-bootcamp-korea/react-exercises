@@ -10,8 +10,27 @@ import "./CardList.scss";
 ***********************************************************/
 
 class CardList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return <div className="card-list"></div>;
+    console.log(this.props.monster);
+    const { monster } = this.props;
+    return (
+      <div className="card-list">
+        {monster.map((monster) => {
+          return (
+            <Card
+              key={monster.id}
+              id={monster.id}
+              name={monster.name}
+              email={monster.email}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
 

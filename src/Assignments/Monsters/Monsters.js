@@ -20,22 +20,49 @@ import "./Monsters.scss";
       filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
 ***********************************************************/
 
+const API = "https://jsonplaceholder.typicode.com/users";
+
 class Monsters extends Component {
-  state = {
-    monsters: [],
-    userInput: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      monsters: [],
+      searchKeyword: "",
+    };
+  }
 
   // 데이터 로딩
+  componentDidMount() {
+    fetch(API, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          monsters: res,
+        });
+      });
+  }
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  handleChange = (e) => {
+    this.setState({ searchKeyword: e.target.value });
+  };
 
   render() {
+    const { monsters, searchKeyword } = this.state;
+    const filterMonster = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
+    console.log("api확인 : " + monsters);
     return (
       <div className="Monsters">
         <h1>컴포넌트 재사용 연습!</h1>
-        {/* <SearchBox handleChange=정의한메소드 /> */}
-        {/* <CardList monsters=몬스터리스트 /> */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <SearchBox handleChange={this.handleChange} />
+        <CardList monster={filterMonster} />
       </div>
     );
   }

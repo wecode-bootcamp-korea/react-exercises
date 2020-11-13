@@ -10,7 +10,7 @@ import "./Card.scss";
   Card 컴포넌트에서 props로 받아야하는 데이터는 id, name, email 입니다.
   props에서 해당하는 키값들을 추출하여 위와 같은 구조로 만들어주세요!
 
-  이미지주소: `https://robohash.org/${숫자}?set=set2&size=180x180`
+  이미지주소: `https://robohash.org/${숫자}?set=set2&size=480x480`
   카드마다 다른 이미지를 보여주기 위해
   위 주소의 숫자 부분을 props로 내려받은 id로 대체하셔야 합니다.
 
@@ -18,9 +18,23 @@ import "./Card.scss";
 ***********************************************************/
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { phone, id, name, email } = this.props;
+    // console.log(this.props.id);
     return (
-      <div className="card-container"></div>
+      <div className="card-container">
+        <img
+          src={`https://robohash.org/${id}?set=set2&size=180x180`}
+          alt="사진"
+          key={phone}
+        />
+        <h2>{name}</h2>
+        <p>{email}</p>
+      </div>
     );
   }
 }
