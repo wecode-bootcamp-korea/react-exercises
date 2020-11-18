@@ -7,6 +7,7 @@ import MonsterDetail from "./Lectures/UrlParameters/MonsterDetail";
 import StateProps from "./Lectures/StateProps/StateProps";
 import OnChange from "./Lectures/OnChange/OnChange";
 import MenuTab from "./Lectures/MenuTab/MenuTab";
+import Lifecycle from "./Lectures/LifeCycle";
 
 export default class Routes extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class Routes extends Component {
           <Route exact path="/monsters/detail/" component={MonsterDetail} />
           <Route exact path="/monsters/detail/:id" component={MonsterDetail} />
           <Route exact path="/Pagination" component={Pagination} />
+          <Route exact path="/lifecycle" component={Lifecycle} />
         </Switch>
       </Router>
     );
