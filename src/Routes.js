@@ -20,7 +20,6 @@ export default class Routes extends Component {
           <Route exact path="/MenuTab" component={MenuTab} />
           <Route exact path="/monsters" component={UrlParameters} />
           <Route exact path="/monsters/detail/" component={MonsterDetail} />
-          <Route exact path="/monsters/detail/:id" component={MonsterDetail} />
           <Route exact path="/Pagination" component={Pagination} />
           <Route exact path="/lifecycle" component={Lifecycle} />
         </Switch>

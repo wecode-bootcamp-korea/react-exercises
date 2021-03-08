@@ -31,21 +31,13 @@ class Coffee extends Component {
       .then((res) => this.setState({ coffee: res }));
   }
 
-  fetchCoffee = (e) => {
-    const LIMIT = 10;
-    const offset = e?.target.dataset.idx;
-
-    fetch();
-  };
-
   render() {
     const { coffee, currentIdx } = this.state;
-    const { fetchCoffee } = this;
 
     return (
       <div className="Photos">
         <h1>Mini Project - Pagination</h1>
-        <Buttons currentIdx={currentIdx} fetchCoffee={fetchCoffee} />
+        <Buttons currentIdx={currentIdx} />
         <CardList coffee={coffee} />
       </div>
     );
