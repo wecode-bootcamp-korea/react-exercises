@@ -9,14 +9,7 @@ class CardList extends Component {
     return (
       <div className="card-list">
         {coffee.map((el) => {
-          return (
-            <Card
-              key={el.id}
-              title={el.korean_name}
-              thumbnailUrl={el.thumbnail}
-              description={el.description}
-            />
-          );
+          return <Card key={el.id} title={el.name} thumbnailUrl={el.image_url} description={el.description} />;
         })}
       </div>
     );

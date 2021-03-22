@@ -26,9 +26,9 @@ class Coffee extends Component {
 
   // 데이터 로딩
   componentDidMount() {
-    fetch("http://localhost:8000/drinks")
+    fetch("http://localhost:8000/products")
       .then((res) => res.json())
-      .then((res) => this.setState({ coffee: res }));
+      .then((res) => this.setState({ coffee: res.products.results }));
   }
 
   render() {
