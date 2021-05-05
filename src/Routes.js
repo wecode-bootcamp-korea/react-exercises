@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Monsters from "./Assignments/Monsters/Monsters";
-import Pagination from "./Lectures/Pagination/Coffee";
-import UrlParameters from "./Lectures/UrlParameters/Monsters";
-import MonsterDetail from "./Lectures/UrlParameters/MonsterDetail";
-import StateProps from "./Lectures/StateProps/StateProps";
-import OnChange from "./Lectures/OnChange/OnChange";
-import MenuTab from "./Lectures/MenuTab/MenuTab";
-import Lifecycle from "./Lectures/LifeCycle";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Monsters from './Assignments/Monsters/Monsters';
+import Pagination from './Lectures/Pagination/Users';
+import UrlParameters from './Lectures/UrlParameters/Monsters';
+import MonsterDetail from './Lectures/UrlParameters/MonsterDetail';
+import StateProps from './Lectures/StateProps/StateProps';
+import OnChange from './Lectures/OnChange/OnChange';
+import MenuTab from './Lectures/MenuTab/MenuTab';
+import Lifecycle from './Lectures/LifeCycle';
 
 export default class Routes extends Component {
   render() {

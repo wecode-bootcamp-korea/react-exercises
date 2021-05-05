@@ -1,7 +1,7 @@
 .pageBtn {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 30px;
   font-size: 20px;
 
@@ -14,10 +14,12 @@
     border-radius: 5px;
     background-color: whitesmoke;
     color: black;
+    cursor: pointer;
 
     &.selected {
-      color: blue;
       background-color: gray;
+      color: blue;
+      cursor: default;
     }
   }
 }
