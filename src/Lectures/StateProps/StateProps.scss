@@ -1,0 +1,19 @@
+.state {
+  border: 1px solid black;
+  width: 40%;
+  margin: 200px auto;
+  text-align: center;
+
+  .stateHeader {
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+  }
+
+  .stateContents {
+    padding: 50px;
+    font-size: 50px;
+    font-weight: bold;
+  }
+}
