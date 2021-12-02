@@ -13,11 +13,11 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Monsters />} />
-        <Route path="/StateProps" element={<StateProps />} />
-        <Route path="/MenuTab" element={<MenuTab />} />
+        <Route path="/stateProps" element={<StateProps />} />
+        <Route path="/menuTab" element={<MenuTab />} />
         <Route path="/monsters" element={<UrlParameters />} />
         <Route path="/monsters/detail/" element={<MonsterDetail />} />
-        <Route path="/Pagination" element={<Pagination />} />
+        <Route path="/pagination" element={<Pagination />} />
         <Route path="/lifecycle" element={<Lifecycle />} />
       </Routes>
     </BrowserRouter>
