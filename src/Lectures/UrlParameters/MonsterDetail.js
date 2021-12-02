@@ -3,7 +3,7 @@ import Card from "./Components/Card/Card";
 import "./MonsterDetail.scss";
 
 function MonsterDetail() {
-  const [data, setData] = useState({});
+  const [monster, setMonster] = useState({});
 
   return (
     <div className="urlParameters">
