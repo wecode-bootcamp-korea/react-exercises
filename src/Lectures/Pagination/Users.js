@@ -22,7 +22,7 @@ export default function Users() {
 
   // 데이터 로딩
   useEffect(() => {
-    fetch("https://node-pagnation.herokuapp.com/users")
+    fetch("http://localhost:8000/users")
       .then((res) => res.json())
       .then((res) => setUsers(res.users));
   }, []);
