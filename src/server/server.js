@@ -33,7 +33,7 @@ app.get("/users", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const readme = fs.readFileSync("README.html", "utf8");
+  const readme = fs.readFileSync("src/server/README.html", "utf8");
 
   res.send(readme);
 });
