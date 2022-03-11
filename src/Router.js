@@ -8,6 +8,8 @@ import StateProps from "./Lectures/StateProps/StateProps";
 import MenuTab from "./Lectures/MenuTab/MenuTab";
 import Lifecycle from "./Lectures/LifeCycle";
 
+// console.log("test");
+
 export default function Router() {
   return (
     <BrowserRouter>
