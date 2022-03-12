@@ -6,7 +6,7 @@ function SearchBox({ handleChange }) {
     <input
       className="search"
       type="search"
-      placeholder="Search..."
+      placeholder="Search.."
       onChange={handleChange}
     />
   );
