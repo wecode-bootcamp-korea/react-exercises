@@ -36,7 +36,7 @@ export default function Users() {
         location.search || `?limit=${LIMIT}&offset=0`
       }`
     )
-      //이렇게 작성하면, 첫 화면(/pagenation)에서도 20번까지 뜬다
+      //이렇게 작성하면, 첫 화면(/pagenation)에서도 20번까지 뜬다!
       .then((res) => res.json())
       .then((res) => setUsers(res.users));
     // .then((res) => console.log(res));
