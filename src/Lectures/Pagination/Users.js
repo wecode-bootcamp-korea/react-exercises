@@ -57,7 +57,7 @@ export default function Users() {
     navigate(queryString);
     // navigate(`/monsters/detail?limit=${limit}&offset=${offset}`);
     // queryString을 사용할 때는 '/monsters/detail' 이 부분이 생략되는데
-    // 적어주지않으면 현재의 url 위로 자동으로 들어간다
+    // 적어주지않으면 현재의 url 위로 자동으로 들어간다!
   };
 
   return (
