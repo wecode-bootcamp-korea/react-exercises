@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
+import Card from "./Components/Card/Card";
+
 
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
 
   1. 위 주소를 호출하여 데이터 로딩을 처리해주세요!
-    - useEffect()
-    - fetch
-    - setState (monsters 에 저장)
+    - useEffect()-0
+    - fetch-0
+    - setState (monsters 에 저장)-0
 
   2. SearchBox 컴포넌트에 정의한 handleChange 메소드를 넘겨주고, 
      호출 시 인자로 들어오는 이벤트객체(e)를 활용해 userInput 으로 setState.
@@ -25,14 +27,37 @@ function Monsters() {
   const [userInput, setUserInput] = useState("");
 
   // 데이터 로딩
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      // CardList()
+      .then((response) => response.json())
+      // .then(response => setMonsters({ monsters: response }))
+      .then(response => setMonsters(response));
+    // .then(monsters => console.log(monsters));
+    // .then(data => { setMonsters(data); })
+
+  }, []);
+
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  const handleChangeInput = e => {
+    setUserInput(e.target.value);
+    console.log(e.target.value);
+  }
+
+  const serchMonsters = monsters.filter((monster) => {
+    return monster.name.toLowerCase().includes(userInput.toLowerCase())
+  });
+
+  // 이해하기
+
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={handleChangeInput} value={userInput} />
+      <CardList monsters={serchMonsters} />
+
     </div>
   );
 }
