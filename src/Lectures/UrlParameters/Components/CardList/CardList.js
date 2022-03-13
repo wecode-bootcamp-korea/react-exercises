@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 import "./CardList.scss";
 
-export default function CardList({ monsters }) {
+export default function CardList({ monsters, handleCard }) {
   return (
     <div className="cardList">
       {monsters.map((monster) => {
@@ -12,6 +12,7 @@ export default function CardList({ monsters }) {
             id={monster.id}
             name={monster.name}
             email={monster.email}
+            handleCard={handleCard}
           />
         );
       })}

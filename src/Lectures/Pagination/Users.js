@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Buttons from "./Components/Buttons";
 import CardList from "./Components/CardList/CardList";
 import "./Users.scss";
@@ -18,14 +19,16 @@ import "./Users.scss";
 ***********************************************************/
 
 export default function Users() {
+  const location = useLocation();
   const [users, setUsers] = useState([]);
+  const baseUrl = "https://node-pagnation.herokuapp.com/users";
 
   // 데이터 로딩
   useEffect(() => {
-    fetch("http://localhost:8000/users")
+    fetch(`${baseUrl}${location.search}`)
       .then((res) => res.json())
       .then((res) => setUsers(res.users));
-  }, []);
+  }, [location.search]);
 
   return (
     <div className="photos">
