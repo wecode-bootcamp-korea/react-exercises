@@ -6,7 +6,6 @@ function Card(props) {
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    // console.log(`goToDetail`);
     navigate(`/monsters/detail/${props.id}`);
   };
 
