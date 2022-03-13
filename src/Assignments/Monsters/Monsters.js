@@ -53,7 +53,7 @@ function Monsters() {
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={updateUserInput} />
-      <CardList monsters={sortedMonsters}} />
+      <CardList monsters={sortedMonsters} />
     </div>
   );
 }

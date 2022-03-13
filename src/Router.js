@@ -14,12 +14,17 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Monsters />} />
         <Route path="/stateProps" element={<StateProps />} />
-        <Route path="/menuTab" element={<MenuTab />} />
+        <Route path="/menuTab/" element={<MenuTab />} />
         <Route path="/monsters" element={<UrlParameters />} />
-        <Route path="/monsters/detail/" element={<MonsterDetail />} />
+        <Route
+          path="/monsters/detail/:monstersId"
+          element={<MonsterDetail />}
+        />
         <Route path="/pagination" element={<Pagination />} />
         <Route path="/lifecycle" element={<Lifecycle />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
+//:monsterId => :(path parameter), monsterId : 이런이름으로 저장하겠다 (라우팅주소를)
