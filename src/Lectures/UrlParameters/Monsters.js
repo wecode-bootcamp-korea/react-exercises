@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
