@@ -1,5 +1,7 @@
-import React from "react";
-import "./Card.scss";
+/** @format */
+
+import React from 'react';
+import './Card.scss';
 
 /***********************************************************
   Card 컴포넌트 구조
@@ -17,8 +19,14 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card({ id, name, email }) {
+	return (
+		<div className='cardContainer'>
+			<img src={`https://robohash.org/${id}?set=set2&size=180x180`} alt='' />
+			<h2>{name}</h2>
+			<p>{email}</p>
+		</div>
+	);
 }
 
 export default Card;
