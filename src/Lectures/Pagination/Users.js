@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Buttons from "./Components/Buttons";
 import CardList from "./Components/CardList/CardList";
+
 import "./Users.scss";
 
 /**********************************************************
@@ -17,20 +19,41 @@ import "./Users.scss";
 
 ***********************************************************/
 
+const LIMIT = 20;
+
 export default function Users() {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // 데이터 로딩
   useEffect(() => {
-    fetch("http://localhost:8000/users")
+    fetch(
+      `http://localhost:8000/users${
+        location.search || `?limit=${LIMIT}&offset=0`
+      }`
+    )
       .then((res) => res.json())
       .then((res) => setUsers(res.users));
-  }, []);
+  }, [location.search]);
+
+  // '' 빈 스트링의 경우에는 false 값이 나온다.
+  // || 는 앞에값이 false 일 경우 뒤에 값이 나온다. ( or 연산자)
+  // 단축 평가 연산자
+
+  const updateOffset = (buttonIndex) => {
+    const offset = buttonIndex * LIMIT;
+    const queryString = `?limit=${LIMIT}&offset=${offset}`;
+    // 화면에 보여줄 개수 limit
+    // 그 데이터 개수의 시작점 offset
+    // 30 부터 50까지 -> offset : 30 limit : 20
+    navigate(queryString);
+  };
 
   return (
     <div className="photos">
       <h1>Mini Project - Pagination</h1>
-      <Buttons />
+      <Buttons updateOffset={updateOffset} />
       <CardList users={users} />
     </div>
   );
