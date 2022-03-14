@@ -12,18 +12,17 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Monsters />} />
-        <Route path="/stateProps" element={<StateProps />} />
-        <Route path="/menuTab" element={<MenuTab />} />
+        <Route path='/' element={<Monsters />} />
+        <Route path='/stateProps' element={<StateProps />} />
+        <Route path='/menuTab' element={<MenuTab />} />
 
         {/* 동적라우팅 실습 */}
-        <Route path="/monsters" element={<UrlParameters />} />
-        {/* <Route path="/monsters/detail/" element={<MonsterDetail />} /> */}
-        <Route path="/monsters/detail/:monsterId" element={<MonsterDetail />} />
+        <Route path='/monsters' element={<UrlParameters />} />
+        <Route path='/monsters/detail/:monsterId' element={<MonsterDetail />} />
 
         {/* 페이지네이션 실습 */}
-        <Route path="/pagination" element={<Pagination />} />
-        <Route path="/lifecycle" element={<Lifecycle />} />
+        <Route path='/pagination' element={<Pagination />} />
+        <Route path='/lifecycle' element={<Lifecycle />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router";
 import Buttons from "./Components/Buttons";
 import CardList from "./Components/CardList/CardList";
 import "./Users.scss";
@@ -17,47 +17,29 @@ import "./Users.scss";
     selected 클래스명을 활용해 현재 페이지와 일치할 경우 스타일링 될 수 있도록 해주세요.
 
 ***********************************************************/
-
 const LIMIT = 20;
-//limit은 여러 곳에서 사용되므로 -> 나중의 유지보수를 위해 상수 데이터로 컴포넌트 밖에서 선언!
 
 export default function Users() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
-  //{pathname: '/pagination', search: '?limit=20&offset=40', hash: '', state: null, key: 'r53bbzun'}
-
   // 데이터 로딩
+
   useEffect(() => {
-    // fetch(`http://localhost:8000/users${location.search}`)
     fetch(
       `http://localhost:8000/users${
         location.search || `?limit=${LIMIT}&offset=0`
       }`
     )
-      //이렇게 작성하면, 첫 화면(/pagenation)에서도 20번까지 뜬다!
       .then((res) => res.json())
       .then((res) => setUsers(res.users));
-    // .then((res) => console.log(res));
   }, [location.search]);
 
   const updateOffset = (buttonIndex) => {
-    // console.log("updateOffset");
-    console.log(buttonIndex); //1번 버튼을 누르면 0을 출력, 2번 -> 1을
-
-    // const limit = 20; //내가 화면에 그려줄 데이터의 개수를 의미
-    const offset = buttonIndex * LIMIT; //offset은 그 개수의 시작점
-    console.log(offset);
-
-    //'?'는 queryString의 시작을 나타냄
+    const offset = buttonIndex * LIMIT;
     const queryString = `?limit=${LIMIT}&offset=${offset}`;
-    console.log(queryString);
 
     navigate(queryString);
-    // navigate(`/monsters/detail?limit=${limit}&offset=${offset}`);
-    // queryString을 사용할 때는 '/monsters/detail' 이 부분이 생략되는데
-    // 적어주지않으면 현재의 url 위로 자동으로 들어간다
   };
 
   return (
@@ -68,5 +50,3 @@ export default function Users() {
     </div>
   );
 }
-
-//pagination의 문제점은 첫 화면(/pagenation)에서 100번까지 모두 뜬다는 것!
