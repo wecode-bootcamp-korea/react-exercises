@@ -8,7 +8,7 @@ function MonsterDetail() {
   const params = useParams();
   const navigate = useNavigate();
 
-  console.log(params); //{monsterId: '5'}
+  // console.log(params); //{monsterId: '5'}
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${params.monsterId}`)
