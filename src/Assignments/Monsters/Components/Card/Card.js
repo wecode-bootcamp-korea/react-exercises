@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import "./Card.scss";
 
 /***********************************************************
@@ -17,8 +18,22 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card({ id, name, email }) {
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/monsters/detail/${id}`);
+  };
+  return (
+    <div className="cardContainer" onClick={goToDetail}>
+      <img
+        src={`https://robohash.org/${id}?set=set2&size=180x180`}
+        alt="monster"
+      />
+      <h2>{name}</h2>
+      <p>{email}</p>
+    </div>
+  );
 }
 
 export default Card;
