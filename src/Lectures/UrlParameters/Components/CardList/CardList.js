@@ -11,8 +11,8 @@ export default function CardList({ monsters }) {
             key={monster.id}
             id={monster.id}
             name={monster.name}
-            email={monster.email}
-          />
+            email={monster.email}>
+          </Card>
         );
       })}
     </div>

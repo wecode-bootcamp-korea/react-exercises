@@ -16,7 +16,7 @@ export default function Router() {
         <Route path="/stateProps" element={<StateProps />} />
         <Route path="/menuTab" element={<MenuTab />} />
         <Route path="/monsters" element={<UrlParameters />} />
-        <Route path="/monsters/detail/" element={<MonsterDetail />} />
+        <Route path="/monsters/detail/:id" element={<MonsterDetail />} />
         <Route path="/pagination" element={<Pagination />} />
         <Route path="/lifecycle" element={<Lifecycle />} />
       </Routes>

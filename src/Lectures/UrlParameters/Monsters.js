@@ -13,10 +13,10 @@ export default function Monsters() {
   }, []);
 
   return (
-    <div className="monsters">
-      <h1>Mini Project - Monsters</h1>
-      <SearchBox />
-      <CardList monsters={monsters} />
+      <div className="monsters">
+          <h1>Mini Project - Monsters</h1>
+          <SearchBox />
+         <CardList monsters={monsters} />
     </div>
   );
 }

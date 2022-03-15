@@ -1,14 +1,17 @@
 import React from "react";
+// import { Link, useLocation } from "react-router-dom";
 import "./Buttons.scss";
 
-export default function Buttons() {
+export default function Buttons({ updateOffset }) {
+  // const query = URLSearchParams(useLocation().search);
+
   return (
     <div className="pageBtn">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
+      <button onClick={() => updateOffset(0)}>1</button>
+      <button onClick={() => updateOffset(1)}>2</button>
+      <button onClick={() => updateOffset(2)}>3</button>
+      <button onClick={() => updateOffset(3)}>4</button>
+      <button onClick={() => updateOffset(4)}>5</button>
     </div>
   );
 }
