@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList/CardList";
-import "./Monsters.scss";
+import React, { useEffect, useState } from 'react';
+import SearchBox from './Components/SearchBox/SearchBox';
+import CardList from './Components/CardList/CardList';
+import './Monsters.scss';
 
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
@@ -12,7 +12,7 @@ import "./Monsters.scss";
     - setState (monsters 에 저장)
 
   2. SearchBox 컴포넌트에 정의한 handleChange 메소드를 넘겨주고, 
-     호출 시 인자로 들어오는 이벤트객체(e)를 활용해 userInput 으로 setState.
+    호출 시 인자로 들어오는 이벤트객체(e)를 활용해 userInput 으로 setState.
 
   3. 필터링 로직 구현 (filter 메소드 활용)
       여기서 비교 대상은 monster 객체의 name 값입니다.
@@ -22,17 +22,38 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState('');
 
-  // 데이터 로딩
+  //
+  const getEvent = (e) => {
+    setUserInput(e.target.value);
+    // console.log(e);
+  };
+
+  const filterList = () => {
+    monsters.filter(getEvent);
+  };
+  
+  
+
+
+  const getData = () => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setMonsters(data));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={getEvent} />
+      <CardList monsters={monsters} />
     </div>
   );
 }
