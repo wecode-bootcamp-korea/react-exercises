@@ -3,6 +3,7 @@ import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
 
+const API_ADDRESS='https://jsonplaceholder.typicode.com/users'
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
 
@@ -25,21 +26,19 @@ function Monsters() {
   const [userInput, setUserInput] = useState("");
 
   // 데이터 로딩
-  const fetchInit={
-    method:'GET',
-  };
-
   useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/users",fetchInit)
-    .then (response=>response.json())
-    .then (monsters=>setMonsters(monsters))
-  },[]);
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-  const handleChange=(e)=>{
-    setUserInput(e.target.value);
-  };
+    fetch(API_ADDRESS,{
+      method:'GET',
+    })
+    .then(response=>response.json())
+    .then(monsters=>setMonsters(monsters))
+  },[])
+  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의  
+  const handleChange=(e)=> {
+    setUserInput(e.target.value)    
+  }
 
-  const sortedMonsters=monsters.filter(monster => 
+  const sortedMonsters = monsters.filter(monster=>
     monster.name.toLowerCase().includes(userInput.toLowerCase())
   );
   
@@ -47,7 +46,7 @@ function Monsters() {
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={handleChange} />
-      <CardList monsters={sortedMonsters} />
+      <CardList  monsters={sortedMonsters} />
     </div>
   );
 }

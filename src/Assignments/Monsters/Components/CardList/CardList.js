@@ -13,13 +13,8 @@ function CardList({monsters}) {
 
   return(
   <div className="cardList">
-    {monsters.map(monster=>(
-      <Card 
-        key={monster.id}
-        id = {monster.id}
-        email = {monster.email}
-        name= {monster.name}
-      />
+    {monsters.map((monster)=>(
+    <Card key={monster.id} {...monster}/>
     ))}
   </div>
   );
