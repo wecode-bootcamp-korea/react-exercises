@@ -27,16 +27,20 @@ function Monsters() {
   useEffect(()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(res=>res.json()) 
-    .then(data=>setMonsters(data));
-  },[])
+    .then(data=>userInput? setMonsters(filterArray):setMonsters(data));
+  },[userInput])
 
-  // 데이터 로딩
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  function handleChange(event){
+    const {value} = event.target;
+    setUserInput(value)
+  }
 
+  let filterArray = monsters.filter(function(monster){return monster.name.toLowerCase().includes(userInput.toLowerCase())})
+  
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox /> */}
+      <SearchBox handleChange={handleChange} />
       <CardList monsters={monsters} />
     </div>
   );
