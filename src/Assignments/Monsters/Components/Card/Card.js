@@ -17,8 +17,14 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card(props) {
+  return (
+  <div className="cardContainer">
+    <img src = {`https://robohash.org/${props.id}set=set2&size=180x180`} alt="괴물사진"/> 
+    <h2>{props.email}</h2>
+    <p>{props.name}</p>
+  </div>
+  );
 }
 
 export default Card;
