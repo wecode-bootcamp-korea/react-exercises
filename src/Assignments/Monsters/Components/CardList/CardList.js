@@ -11,7 +11,11 @@ import './CardList.scss';
 
 function CardList({ monsters, userInput }) {
   const filtered = monsters.filter((item) => {
-    return item.name.toUpperCase().includes(userInput.toUpperCase());
+    console.log(item);
+    return (
+      item.name.toUpperCase().includes(userInput.toUpperCase()) ||
+      item.email.toUpperCase().includes(userInput.toUpperCase())
+    );
   });
   return (
     <div className="cardList">
