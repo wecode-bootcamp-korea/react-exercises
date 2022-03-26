@@ -30,12 +30,9 @@ function Monsters() {
     // console.log(e);
   };
 
-  const filterList = () => {
-    monsters.filter(getEvent);
-  };
-  
-  
-
+  const filterList = monsters.filter((monster) => {
+    return monster.name.toLowerCase().includes(userInput.toLowerCase());
+  });
 
   const getData = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -53,7 +50,7 @@ function Monsters() {
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={getEvent} />
-      <CardList monsters={monsters} />
+      <CardList monsters={filterList} />
     </div>
   );
 }
