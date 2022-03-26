@@ -3,12 +3,9 @@ import "./SearchBox.scss";
 
 function SearchBox(props) {
   return (
-    <input
-      className="search"
-      type="search"
-      placeholder="Search..."
-      onChange={props.handleChange}
-    />
+    <>
+      <input className="search" type="search" placeholder="Search..." onChange={props.handleChange} />;
+    </>
   );
 }
 

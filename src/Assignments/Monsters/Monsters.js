@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
+import React, { useState, useEffect } from "react";
+import SearchBox from ".././Monsters/Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
 
@@ -18,21 +18,36 @@ import "./Monsters.scss";
       여기서 비교 대상은 monster 객체의 name 값입니다.
       소문자로 바꾼 monster.name 값과 userInput값을 비교.
       filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
+      파일: Monsters.js
 ***********************************************************/
 
 function Monsters() {
-  const [monsters, setMonsters] = useState([]);
+  const [monsters, setMonsters] = useState([]); //다들어있는상태
   const [userInput, setUserInput] = useState("");
 
-  // 데이터 로딩
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setMonsters(data));
+  }, []);
 
+  // 데이터 로딩
+  const handleChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  const sortMonsters = monsters.filter((monster) => {
+    return monster.name.toUpperCase().includes(userInput.toUpperCase());
+  });
+
+  console.log(sortMonsters);
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
   return (
     <div className="monsters">
-      <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <h1>31기 윤서영 몬스터 과제 감사합니다.</h1>
+      <SearchBox handleChange={handleChange} />
+      <CardList monsters={sortMonsters} />
     </div>
   );
 }
