@@ -10,7 +10,6 @@ import "./CardList.scss";
 ***********************************************************/
 
 function CardList({ monsters, useInput }) {
-  // console.log(monsters);
   return (
     <div className="cardList">
       {monsters.map((item) => {

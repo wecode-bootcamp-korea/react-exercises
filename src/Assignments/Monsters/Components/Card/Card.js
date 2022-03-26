@@ -18,7 +18,6 @@ import "./Card.scss";
 ***********************************************************/
 
 function Card({ id, name, email }) {
-  console.log(id);
   return (
     <>
       <div className="card-container">
