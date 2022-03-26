@@ -1,5 +1,4 @@
 import React from "react";
-// import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
 
@@ -9,8 +8,17 @@ import "./CardList.scss";
   Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
 ***********************************************************/
 
-function CardList() {
-  return <div className="cardList"></div>;
+function CardList({ userInput, monsters, filteredMonsters }) {
+  let isSearchValid = userInput.length > 0;
+  const cards = isSearchValid ? filteredMonsters() : monsters;
+  return (
+    <div className="cardList">
+      {cards.map((monster) => {
+        const { id, name, email } = monster;
+        return <Card key={id} id={id} name={name} email={email} />;
+      })}
+    </div>
+  );
 }
 
 export default CardList;
