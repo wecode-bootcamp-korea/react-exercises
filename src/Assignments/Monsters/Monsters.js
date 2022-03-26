@@ -23,12 +23,13 @@ import './Monsters.scss';
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     const data = await fetch('https://jsonplaceholder.typicode.com/users').then((res) =>
       res.json()
     );
-
+    setLoading(false);
     setMonsters(data);
   };
 
@@ -46,7 +47,7 @@ function Monsters() {
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={handleChange} />
-      <CardList monsters={monsters} userInput={userInput} />
+      {loading ? <h1>로딩중입니다.</h1> : <CardList monsters={monsters} userInput={userInput} />}
     </div>
   );
 }
