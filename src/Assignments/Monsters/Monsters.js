@@ -8,7 +8,7 @@ function Monsters() {
   const [userInput, setUserInput] = useState("");
   
   let filteredMonsters = monsters.filter(function(list){
-    return list.name.includes(userInput);
+    return list.name.toLowerCase().includes(userInput.toLowerCase());
   })
   
   useEffect(() => {
