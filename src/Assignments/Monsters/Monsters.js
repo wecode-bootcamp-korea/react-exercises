@@ -8,9 +8,12 @@ function Monsters() {
   const [userInput, setUserInput] = useState("");
 
   const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(data => userInput ? setMonsters(filteredArrayMosters):setMonsters(data))
+    async function fetchAndSetUser() {
+      const postResponse = await fetch("https://jsonplaceholder.typicode.com/users")
+      const post = await postResponse.json();
+      userInput? setMonsters(filteredArrayMosters):setMonsters(post);
+    }
+    fetchAndSetUser();
   }
 
   useEffect(() => {
