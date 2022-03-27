@@ -35,7 +35,7 @@ function Monsters() {
 
   return (
     <div className='monsters'>
-      <h1>컴포넌트 재사용 연습!</h1>
+      <h1>31기 김민수의 컴포넌트 재사용 연습!</h1>
       {/* <SearchBox handleChange=정의한메소드 /> */}
       <CardList monsters={monsters} />
     </div>

@@ -11,15 +11,16 @@ import './CardList.scss';
 ***********************************************************/
 
 function CardList(props) {
+  console.log(props.monsters);
   return (
     <div className='cardList'>
       {props.monsters.map((monster) => {
         return (
           <Card
-            key={props.monsters.id}
-            id={props.monsters.id}
-            name={props.monsters.name}
-            email={props.monsters.email}
+            key={monster.id}
+            id={monster.id}
+            name={monster.name}
+            email={monster.email}
           />
         );
       })}
