@@ -1,4 +1,5 @@
 import React from 'react';
+import Monsters from '../../Monsters';
 // import Monsters from "../../Monsters";
 import Card from '../Card/Card';
 import './CardList.scss';
@@ -10,7 +11,20 @@ import './CardList.scss';
 ***********************************************************/
 
 function CardList(props) {
-  return <div className='cardList'></div>;
+  return (
+    <div className='cardList'>
+      {props.monsters.map((monster) => {
+        return (
+          <Card
+            key={props.monsters.id}
+            id={props.monsters.id}
+            name={props.monsters.name}
+            email={props.monsters.email}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default CardList;
