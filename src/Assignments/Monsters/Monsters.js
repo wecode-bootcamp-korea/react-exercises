@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList/CardList";
+import { CardList } from "./Components/CardList/CardList";
 import "./Monsters.scss";
 
 /**********************************************************
@@ -40,7 +40,7 @@ function Monsters() {
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={handleChange} />
-      <CardList monsters={monsters} />
+      <CardList monsters={monsters} userInput={userInput} />
     </div>
   );
 }
