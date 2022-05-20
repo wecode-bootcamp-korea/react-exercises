@@ -47,6 +47,7 @@ function Monsters() {
       <CardList monsters={filterMonster} />
     </div>
   );
+  
 }
 
 export default Monsters;
