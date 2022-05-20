@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
@@ -22,17 +22,30 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState(null);
 
   // 데이터 로딩
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((result) => setMonsters(result));
+  }, []);
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  const searchMonster = (event) => {
+    setUserInput(null);
+    for (let monster of monsters) {
+      if (monster.name.toLowerCase() === event.target.value.toLowerCase()) {
+        setUserInput(monster);
+      }
+    }
+  };
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={searchMonster} />
+      <CardList monsters={monsters} userInput={userInput} />
     </div>
   );
 }
