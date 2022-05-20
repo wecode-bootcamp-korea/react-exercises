@@ -12,20 +12,31 @@ import "./CardList.scss";
 function CardList({ monsters, userInput }) {
   return (
     <div className="cardList">
-      {userInput ? (
-        <Card id={userInput.id} name={userInput.name} email={userInput.email} />
-      ) : (
-        monsters.map((monster) => {
-          return (
-            <Card
-              key={monster.id}
-              id={monster.id}
-              name={monster.name}
-              email={monster.email}
-            />
-          );
-        })
-      )}
+      {userInput === ""
+        ? monsters.map((monster) => {
+            return (
+              <Card
+                key={monster.id}
+                id={monster.id}
+                name={monster.name}
+                email={monster.email}
+              />
+            );
+          })
+        : monsters
+            .filter((monster) => {
+              return monster.id === userInput;
+            })
+            .map((monster) => {
+              return (
+                <Card
+                  key={monster.id}
+                  id={monster.id}
+                  name={monster.name}
+                  email={monster.email}
+                />
+              );
+            })}
     </div>
   );
 }

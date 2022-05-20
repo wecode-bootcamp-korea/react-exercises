@@ -22,7 +22,7 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState(null);
+  const [userInput, setUserInput] = useState("");
 
   // 데이터 로딩
   useEffect(() => {
@@ -33,10 +33,10 @@ function Monsters() {
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
   const searchMonster = (event) => {
-    setUserInput(null);
+    setUserInput("");
     for (let monster of monsters) {
       if (monster.name.toLowerCase() === event.target.value.toLowerCase()) {
-        setUserInput(monster);
+        setUserInput(monster.id);
       }
     }
   };
