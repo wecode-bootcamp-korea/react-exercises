@@ -30,6 +30,7 @@ function Monsters() {
     .then(res => res.json())
     .then(monstersData => setMonsters(monstersData))
   })
+
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
   const handleChange = e => {
     setUserInput(e.target.value);
@@ -37,7 +38,7 @@ function Monsters() {
 
   return (
     <div className="monsters">
-      <h1>컴포넌트 재사용 연습!</h1>
+      <h1>Hello, Monsters!</h1>
       <SearchBox handleChange={handleChange} />
       <CardList monsters={monsters} userInput={userInput} />
     </div>

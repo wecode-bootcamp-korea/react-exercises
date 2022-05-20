@@ -11,8 +11,8 @@ import "./CardList.scss";
 
 function CardList({monsters, userInput}) {
   const filteredMonsters = monsters.filter(monsters => {
-    return monsters.name.toUpperCase().includes(userInput.toUpperCase());
-  })
+    return monsters.name.toLowerCase().includes(userInput.toLowerCase());
+  });
   return <div className="cardList">
     {filteredMonsters.map(monster => (
       <Card key={monster.id} id={monster.id} name={monster.name} email={monster.email} />
