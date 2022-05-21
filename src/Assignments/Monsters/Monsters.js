@@ -29,7 +29,6 @@ function Monsters() {
       .then(res => res.json())
       .then(data => {
         setMonsters(data);
-        console.log('monsters',monsters)
       })
   },[])
 

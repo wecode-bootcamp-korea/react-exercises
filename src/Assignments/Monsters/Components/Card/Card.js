@@ -17,13 +17,13 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card(props) {
+function Card({id, name, email}) {
   return (
     <div className="cardContainer">
       {/* <img src={'https://robohash.org/' + props.id + '?set=set2&size=180x180'} alt="" /> */}
-      <img src={`https://robohash.org/${props.id}?set=set2&size=180x180`}/>
-      <h2>{props.name}</h2>
-      <p>{props.email}</p>
+      <img src={`https://robohash.org/${id}?set=set2&size=180x180`}/>
+      <h2>{name}</h2>
+      <p>{email}</p>
     </div>
   )
 }
