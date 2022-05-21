@@ -36,14 +36,14 @@ function Monsters() {
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
   const handleChange = () => {
-
+    
   }
 
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
+      <SearchBox handleChange={handleChange} />
       <CardList monsters={monsters} />
     </div>
   );
