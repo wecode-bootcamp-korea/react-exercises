@@ -32,19 +32,21 @@ function Monsters() {
         setMonsters(data);
       });
   },[])
-  // 데이터 로딩
 
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
-  const handleChange = () => {
-    
+  const handleChange = (e) => {
+    setUserInput(e.target.value)
   }
+  const filterCardList = monsters.filter(monsters => {
+    return monsters.name.toLowerCase().includes(userInput.toLowerCase());
+  })
 
+  console.log(filterCardList);
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       <SearchBox handleChange={handleChange} />
-      <CardList monsters={monsters} />
+      <CardList monsters={filterCardList}/>
     </div>
   );
 }
