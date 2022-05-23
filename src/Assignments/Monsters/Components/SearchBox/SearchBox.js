@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchBox.scss";
 
 function SearchBox(props) {
@@ -11,5 +10,5 @@ function SearchBox(props) {
     />
   );
 }
-
+//searchBox 컴포넌트는 input이라는 요소를 가지고 있고, onChange함수 안에 props로 전달받은 handleChange
 export default SearchBox;

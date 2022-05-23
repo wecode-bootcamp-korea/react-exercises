@@ -1,4 +1,4 @@
-import React from "react";
+/* import React, { useEffect, useState } from "react"; */
 import "./Card.scss";
 
 /***********************************************************
@@ -17,8 +17,18 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card({ id, name, email }) {
+  //구조 분해 할당 해주기
+  return (
+    <div className="cardContainer">
+      <img
+        src={`https://robohash.org/${id}?set=set2&size=180x180`} //${}여기에 props로 전달받은 각각의 id값을 줌
+        alt="monsterImg"
+      />
+      <h2>{name}</h2>
+      <p>{email}</p>
+    </div>
+  );
 }
 
 export default Card;
