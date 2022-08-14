@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList/CardList";
-import "./Monsters.scss";
+import React, { useEffect, useState } from 'react';
+import SearchBox from './Components/SearchBox/SearchBox';
+import CardList from './Components/CardList/CardList';
+import './Monsters.scss';
 
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
@@ -22,17 +22,33 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState('');
 
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((result) => {
+        setMonsters(result);
+      });
+  }, []);
   // 데이터 로딩
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  const updateUserInput = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  const sortedMonsters = monsters.filter((monsters) => {
+    return monsters.name.toLowerCase().includes(userInput.toLowerCase());
+  });
+
+  console.log(sortedMonsters);
 
   return (
-    <div className="monsters">
+    <div className='monsters'>
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={updateUserInput} />
+      <CardList monsters={sortedMonsters} />
     </div>
   );
 }
