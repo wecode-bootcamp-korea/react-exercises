@@ -1,13 +1,13 @@
 import React from "react";
 import "./SearchBox.scss";
 
-function SearchBox(props) {
+function SearchBox({ onChange }) {
   return (
     <input
       className="search"
       type="search"
       placeholder="Search..."
-      onChange={props.handleChange}
+      onChange={onChange}
     />
   );
 }
