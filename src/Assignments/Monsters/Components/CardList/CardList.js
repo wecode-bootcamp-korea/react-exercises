@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
 // import Monsters from "../../Monsters";
-import Card from "../Card/Card";
-import "./CardList.scss";
+import Card from '../Card/Card';
+
+import './CardList.scss';
 
 /***********************************************************
   Card 컴포넌트를 import 한 뒤, props로 내려받은 데이터에 
@@ -9,8 +10,20 @@ import "./CardList.scss";
   Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
 ***********************************************************/
 
-function CardList() {
-  return <div className="cardList"></div>;
+function CardList({ monsters }) {
+  return (
+    <div className="cardList">
+      {monsters.map((item, i) => {
+        return (
+          <div className="card" key={item.id}>
+            <img src={'https://robohash.org/' + item.id + '?set=set2&size=180x180'}></img>
+            <h2>{item.name}</h2>
+            <p>{item.email}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default CardList;

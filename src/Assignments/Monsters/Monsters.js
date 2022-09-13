@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList/CardList";
-import "./Monsters.scss";
+import React, { useEffect, useState } from 'react';
+import SearchBox from './Components/SearchBox/SearchBox';
+import CardList from './Components/CardList/CardList';
+import './Monsters.scss';
 
 /**********************************************************
   API 주소: https://jsonplaceholder.typicode.com/users
@@ -22,17 +22,42 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState('');
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then((data) => {
+        setMonsters(data);
+      });
+  }, []);
+  // useEffect(() => {
+  //   if (userInput.trim().length === 0) {
+  //     fetch("https://jsonplaceholder.typicode.com/users")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setMonsters(data);
+  //       });
+  //   }
+  // }, []);
 
   // 데이터 로딩
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  // array를 filter 하는데 조건이 searchbox의 인풋값. 인풋값 state에 저장해야함.
+
+  let copy = [...monsters];
+  copy = monsters.filter((monster) => monster.name.toUpperCase().includes(userInput));
+
+  function handleChange(e) {
+    setUserInput(e.target.value.toUpperCase());
+  }
 
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={handleChange} />
+      <CardList monsters={copy} />
     </div>
   );
 }
