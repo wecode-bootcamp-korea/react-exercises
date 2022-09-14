@@ -1,9 +1,10 @@
+import e from "cors";
 import React from "react";
 import "./Card.scss";
 
 /***********************************************************
   Card 컴포넌트 구조
-    <img src=이미지주소 alt="">
+    <img src=`https://robohash.org/${숫자}?set=set2&size=180x180` alt="">
 	  <h2>Name</h2>
 	  <p>Email</p>
 
@@ -17,8 +18,17 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card(e) {
+  return (
+    <div className="cardContainer">
+      <img
+        src={`https://robohash.org/${e.monsters.id}?set=set2&size=180x180`}
+        alt=""
+      />
+      <h2>{e.monsters.name}</h2>
+      <p>{e.monsters.email}</p>
+    </div>
+  );
 }
 
 export default Card;

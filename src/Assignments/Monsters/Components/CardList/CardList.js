@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
@@ -9,8 +9,15 @@ import "./CardList.scss";
   Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
 ***********************************************************/
 
-function CardList() {
-  return <div className="cardList"></div>;
+function CardList(e) {
+  const [isValid, setIsValid] = useState(true);
+  return (
+    <div className="cardList">
+      {e.monsters.map((e) => {
+        return <Card monsters={e} key={e.id} disavled={isValid} />;
+      })}
+    </div>
+  );
 }
 
 export default CardList;
