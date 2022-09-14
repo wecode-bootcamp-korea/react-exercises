@@ -1,40 +1,96 @@
-import React, { useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList/CardList";
-import "./Monsters.scss";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "@emotion/styled";
 
-/**********************************************************
-  API 주소: https://jsonplaceholder.typicode.com/users
+import CardList from "../Monsters/Components/CardList/CardList";
 
-  1. 위 주소를 호출하여 데이터 로딩을 처리해주세요!
-    - useEffect()
-    - fetch
-    - setState (monsters 에 저장)
+const Monsters = () => {
+    const [monsters, setMonsters] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [copy, setCopy] = useState([]);
 
-  2. SearchBox 컴포넌트에 정의한 handleChange 메소드를 넘겨주고, 
-     호출 시 인자로 들어오는 이벤트객체(e)를 활용해 userInput 으로 setState.
+    useEffect(() => {
+        const fetch = async () => {
+            const { data } = await axios.get(
+                "https://jsonplaceholder.typicode.com/users"
+            );
 
-  3. 필터링 로직 구현 (filter 메소드 활용)
-      여기서 비교 대상은 monster 객체의 name 값입니다.
-      소문자로 바꾼 monster.name 값과 userInput값을 비교.
-      filter 메소드가 반환하는 값을 변수에 저장 후 return 문 안에 CardList에 props로 전달
-***********************************************************/
+            data.map(
+                (e) =>
+                    (e.image = `https://robohash.org/${e.id}?set=set2&size=180x180`)
+            );
 
-function Monsters() {
-  const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+            setMonsters(data);
+            setCopy(data);
+        };
+        fetch();
+    }, []);
 
-  // 데이터 로딩
+    console.log(copy);
+    const handleInputChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
 
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+    useEffect(() => {
+        setMonsters(
+            copy.filter(
+                (e) =>
+                    e.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    e.phone.includes(searchTerm) ||
+                    e.email.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    }, [searchTerm, copy]);
 
-  return (
-    <div className="monsters">
-      <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
-    </div>
-  );
-}
+    return (
+        <Container>
+            <FixedWrap>
+                <Title>연락처</Title>
+                <Search
+                    placeholder="이름, 연락처, 이메일 검색"
+                    onChange={handleInputChange}
+                />
+            </FixedWrap>
+            <CardList item={monsters} />
+        </Container>
+    );
+};
 
 export default Monsters;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    height: 1600px;
+    text-align: center;
+    padding: 10px;
+`;
+
+const FixedWrap = styled.div`
+    position: fixed;
+    background-color: aliceblue;
+    top: 0;
+    width: 100%;
+`;
+
+const Title = styled.h1`
+    color: navy;
+`;
+
+const Search = styled.input`
+    all: unset;
+    background-color: white;
+    width: 90%;
+    height: 50px;
+    font-size: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    ::placeholder {
+        font-size: 16px;
+    }
+`;

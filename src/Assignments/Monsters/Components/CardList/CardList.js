@@ -1,16 +1,41 @@
-import React from "react";
-// import Monsters from "../../Monsters";
+import styled from "@emotion/styled";
+import React, { useState } from "react";
+
 import Card from "../Card/Card";
-import "./CardList.scss";
+import Detail from "../../Detail";
 
-/***********************************************************
-  Card 컴포넌트를 import 한 뒤, props로 내려받은 데이터에 
-  map 함수를 호출해 각각 다른 데이터를 가진 Card 컴포넌트들을 리턴해주세요!
-  Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
-***********************************************************/
-
-function CardList() {
-  return <div className="cardList"></div>;
-}
+const CardList = ({ item }) => {
+    const [clicked, setClicked] = useState();
+    const handleCardClick = (id) => {
+        console.log(id);
+        setClicked(item.find((el) => el.id === id));
+    };
+    return (
+        <CardListContainer>
+            {item.map((monster) => (
+                <Card
+                    name={monster.name}
+                    id={monster.id}
+                    phone={monster.phone}
+                    email={monster.email}
+                    key={monster.id}
+                    image={monster.image}
+                    onClick={() => handleCardClick(monster.id)}
+                    clicked={clicked}
+                    setClicked={setClicked}
+                />
+            ))}
+            {clicked && <Detail clicked={clicked} setClicked={setClicked} />}
+        </CardListContainer>
+    );
+};
 
 export default CardList;
+
+const CardListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 220px;
+    gap: 10px;
+    width: 100%;
+`;

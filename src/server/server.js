@@ -12,30 +12,30 @@ const Database = require("./Database.json");
 const PORT = process.env.PORT || 8000;
 
 app.get("/users", (req, res) => {
-  if (Object.keys(req.query).length !== 0) {
-    const filteredUsers = [];
-    const limit = Number(req.query.limit) || Database.users.length;
-    const offset = Number(req.query.offset) || 0;
+    if (Object.keys(req.query).length !== 0) {
+        const filteredUsers = [];
+        const limit = Number(req.query.limit) || Database.users.length;
+        const offset = Number(req.query.offset) || 0;
 
-    for (let i = offset; i < limit + offset; i++) {
-      if (filteredUsers.length !== limit && i < Database.users.length) {
-        filteredUsers.push(Database.users[i]);
-      }
+        for (let i = offset; i < limit + offset; i++) {
+            if (filteredUsers.length !== limit && i < Database.users.length) {
+                filteredUsers.push(Database.users[i]);
+            }
+        }
+
+        const filtedDatabase = { ...Database, users: filteredUsers };
+
+        res.send(filtedDatabase);
+        return;
     }
 
-    const filtedDatabase = { ...Database, users: filteredUsers };
-
-    res.send(filtedDatabase);
-    return;
-  }
-
-  res.send(Database);
+    res.send(Database);
 });
 
 app.get("/", (req, res) => {
-  const readme = fs.readFileSync("src/server/README.html", "utf8");
+    const readme = fs.readFileSync("src/server/README.html", "utf8");
 
-  res.send(readme);
+    res.send(readme);
 });
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
