@@ -28,7 +28,7 @@ function Monsters() {
     fetch('https://jsonplaceholder.typicode.com/users').then(response=>response.json()).then((json)=>setMonsters(json));
   },[])
 
-  const serchhandle = (event) =>{
+  const searchHandle = (event) =>{
     setUserInput(event.target.value)
   }
   const inputValue = userInput.toLowerCase();
@@ -36,7 +36,7 @@ function Monsters() {
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      <SearchBox handleChange={serchhandle} />
+      <SearchBox handleChange={searchHandle} /> 
       <CardList monsters={monsters} filter={inputValue}/>
     </div>
   );
