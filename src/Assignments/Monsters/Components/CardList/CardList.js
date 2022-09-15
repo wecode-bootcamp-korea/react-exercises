@@ -16,8 +16,8 @@ function CardList({ monsters }) {
       {monsters.map((monster) => {
        return  (
         <Card 
-         key={monster.id} 
-          id={monster.id} n
+          key={monster.id} 
+          id={monster.id} 
           name={monster.name}
           email={monster.email}
          />
