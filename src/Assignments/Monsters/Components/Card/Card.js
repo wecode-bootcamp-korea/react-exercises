@@ -17,14 +17,13 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card(elements) {
-  console.log(elements.id);
+function Card({id, name, email}) {
   
   return (
     <div className="cardContainer">
-      <img src={`https://robohash.org/${elements.id}?set=set2&size=180x180`} alt={elements.name} />
-      <h2>{elements.name}</h2>
-      <p>{elements.email}</p>
+      <img src={`https://robohash.org/${id}?set=set2&size=180x180`} alt={name} />
+      <h2>{name}</h2>
+      <p>{email}</p>
     </div>
   )
 }
