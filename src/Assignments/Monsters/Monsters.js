@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SearchBox from "./Components/SearchBox/SearchBox";
+// import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
 
@@ -22,7 +22,7 @@ import "./Monsters.scss";
 
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
-  const [userInput, setUserInput] = useState("");
+  // const [userInput, setUserInput] = useState("");
 
   // 데이터 로딩
 
@@ -40,22 +40,10 @@ function Monsters() {
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
-  const handleChange = ((event) => {
-    setUserInput(event.target.value);
-    filterKeyword (monsters);
-  });
-
-  function filterKeyword (monsters) {
-    monsters.filter((val) => { if(val.name.toLowerCase().includes(userInput.toLowerCase())){return val;} }).map((elements) => {
-      console.log(elements);
-    });
-  }
-
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
       {/* <SearchBox handleChange=정의한메소드 /> */}
-      <SearchBox handleChange={handleChange} />
       <CardList monsters={monsters} />
     </div>
   );

@@ -18,12 +18,13 @@ import "./Card.scss";
 ***********************************************************/
 
 function Card(elements) {
+  console.log(elements.id);
   
   return (
     <div className="cardContainer">
-      <img src={`https://robohash.org/${elements.elements.id}?set=set2&size=180x180`} alt={elements.elements.name} />
-      <h2>{elements.elements.name}</h2>
-      <p>{elements.elements.email}</p>
+      <img src={`https://robohash.org/${elements.id}?set=set2&size=180x180`} alt={elements.name} />
+      <h2>{elements.name}</h2>
+      <p>{elements.email}</p>
     </div>
   )
 }

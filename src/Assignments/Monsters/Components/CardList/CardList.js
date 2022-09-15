@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import Monsters from "../../Monsters";
 import Card from "../Card/Card";
 import "./CardList.scss";
@@ -11,8 +11,9 @@ import "./CardList.scss";
 
 function CardList(monsters) {
   
-  const cardList = monsters.monsters.map((elements, index) => {
-    return (<Card elements={elements} key={elements.id} />)
+  const cardList = monsters.monsters.map((elements) => {
+    console.log(elements.id);
+    return (<Card id={elements.id} name={elements.name} email={elements.email} key={elements.id} />)
   });
 
   return(<div className="cardList">{cardList}</div>);
