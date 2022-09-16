@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightblue;
+  background-color: #222;
 }
 
 code {
@@ -17,10 +17,17 @@ code {
     monospace;
 }
 
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-family: "Fira Code", monospace;
   font-size: 3.5rem;
-  color: #0ccac4;
+  // color: #0ccac4;
 }
 
 ul {

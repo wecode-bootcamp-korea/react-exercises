@@ -42,7 +42,7 @@ function Monsters() {
 
   return (
     <div className="monsters">
-      <h1>컴포넌트 재사용 연습!</h1>
+      <h1 className="title">wecode-Monster</h1>
       <SearchBox handleChange={userSearchedValue} />
       <CardList monsters={matchedMonsters} />
     </div>

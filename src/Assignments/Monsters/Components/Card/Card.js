@@ -19,10 +19,10 @@ import "./Card.scss";
 
 function Card({ id, name, email }) {
   return (
-    <div className="cardContainer">
+    <div className="cardContainer assign">
       <img src={`https://robohash.org/${id}?set=set2&size=180x180`} alt="" />
-      <h2>{name}</h2>
-      <p>{email}</p>
+      <h2 className="name">{name}</h2>
+      <p className="email">{email}</p>
     </div>
   );
 }

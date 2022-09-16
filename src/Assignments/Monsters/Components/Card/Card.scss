@@ -1,10 +1,11 @@
-.cardContainer {
+div.cardContainer {
   display: flex;
   flex-direction: column;
-  background-color: #95dada;
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 25px;
+  padding: 25px 25px 60px;
+  color: #efefef;
+  background-color: #111;
+  border: 1px solid #111;
+  border-radius: 10px;
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -13,5 +14,9 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  .name {
+    padding: 20px 0 10px;
   }
 }
