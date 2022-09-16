@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Card.scss";
 
 /***********************************************************
@@ -17,8 +17,15 @@ import "./Card.scss";
   Name 과 Email 도 마찬가지입니다.
 ***********************************************************/
 
-function Card() {
-  return <div className="cardContainer"></div>;
+function Card({ key, id, name, email }) {
+  let test = `https://robohash.org/${id}?set=set2&size=180x180`;
+  return (
+    <div className="cardContainer" key={key}>
+      <img src={test} alt="" id={id}></img>
+      <h2>{name}</h2>
+      <p>{email}</p>
+    </div>
+  );
 }
 
 export default Card;

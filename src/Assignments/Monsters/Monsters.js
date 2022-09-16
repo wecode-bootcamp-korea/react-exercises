@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import CardList from "./Components/CardList/CardList";
 import "./Monsters.scss";
@@ -25,14 +26,43 @@ function Monsters() {
   const [userInput, setUserInput] = useState("");
 
   // 데이터 로딩
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setMonsters(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
 
+  const handleChange = (e) => {
+    setUserInput(e.target.value);
+    console.log(userInput);
+  };
+
+  // const handleChange = (e) => {
+  //   const searchName = [...monsters];
+  //   const nameList = [];
+  //   searchName.map((item) => {
+  //     nameList.push(item.name);
+  //   });
+
+  //   const result = nameList.filter((data) => data.includes(userInput));
+  //   //데이터 뽑기 concat 활용 리팩토링
+  //   setUserInput(e.target.value);
+
+  //   console.log(result);
+  // };
   return (
     <div className="monsters">
       <h1>컴포넌트 재사용 연습!</h1>
-      {/* <SearchBox handleChange=정의한메소드 /> */}
-      {/* <CardList monsters=몬스터리스트 /> */}
+      <SearchBox handleChange={handleChange} />
+      <CardList monsters={monsters} />
     </div>
   );
 }

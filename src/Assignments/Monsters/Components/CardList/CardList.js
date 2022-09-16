@@ -9,8 +9,21 @@ import "./CardList.scss";
   Card 컴포넌트에서 필요로 하는 데이터는 id, name, email 입니다.
 ***********************************************************/
 
-function CardList() {
-  return <div className="cardList"></div>;
+function CardList({ monsters, userInput }) {
+  return (
+    <div className="cardList">
+      {monsters.map((item) => {
+        return (
+          <Card
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            email={item.email}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default CardList;
