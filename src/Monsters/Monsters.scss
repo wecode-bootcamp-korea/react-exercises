@@ -1,0 +1,21 @@
+.monsters {
+  text-align: center;
+
+  .title {
+    margin: auto;
+    padding: 30px;
+    color: black;
+  }
+
+  .search {
+    width: 250px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px 10px 10px 15px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    outline: none;
+    -webkit-appearance: none;
+  }
+}
