@@ -1,5 +1,11 @@
+
+
+
 .monsters {
   text-align: center;
+display:flex;
+flex-direction: column;
+align-items: center;
 
   .title {
     margin: auto;
@@ -18,4 +24,29 @@
     outline: none;
     -webkit-appearance: none;
   }
+}
+
+.monsterCards{
+border:solid 2px blue;
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-wrap: wrap;
+background-color: rgb(172, 188, 183);
+
+  .card-container{
+  border:3px solid rgb(0, 0, 0);
+  margin-bottom:20px;
+  margin-top:20px;
+  width:300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+
+  .monsterIMG{
+    width:200px;
+  }
+}
 }
