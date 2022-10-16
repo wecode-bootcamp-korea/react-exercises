@@ -1,0 +1,12 @@
+.wrap {
+    background-color: black;
+}
+
+.card-box {
+    display: flex;
+    flex-wrap: wrap; 
+    align-content: center; 
+    margin: 0 auto;
+    width: 1200px;
+    background-color: black;
+}

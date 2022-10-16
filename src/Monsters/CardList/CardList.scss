@@ -1,0 +1,21 @@
+ .cardlist-box {
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    background-color: white;
+    color: black;
+    text-align: center;
+    width: 260px; 
+    height: 340px; 
+    margin: 20px; 
+    line-height: 50px;
+    flex-shrink: 0;
+   
+    &:hover {
+      transform: scale(1.03);
+    }
+ }
+ .cardList-name {
+    font-weight: 900; 
+    font-size: 20px;
+ } 
