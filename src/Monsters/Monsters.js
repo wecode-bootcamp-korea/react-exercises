@@ -3,12 +3,12 @@ import './Monsters.scss';
 import CardList from './CardList.js';
 
 function Monsters() {
-  //인풋창에 타이핑된 글자
+
   const [inputWord,setFilter]=useState('');
   function inputOnchange(e){
     setFilter(e.target.value)
   }
-  //api로 받아온 데이터 -> 몬스터스테이트
+
   const [monsterState, setMonsterState] = useState([]);
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users', {
@@ -38,7 +38,6 @@ function Monsters() {
       
   }
 
-  //로그인실습
   return (
     <>
 
@@ -56,5 +55,3 @@ function Monsters() {
 }
 
 export default Monsters;
-
-//여기서 fetch fetch() → 호출할 API 주소: https://jsonplaceholder.typicode.com/users
