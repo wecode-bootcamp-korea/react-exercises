@@ -1,0 +1,22 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+  margin: 30px;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  .monsterImage {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
