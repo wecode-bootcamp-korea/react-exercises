@@ -1,21 +1,49 @@
-.monsters {
-  text-align: center;
+html,
+body {
+  background-color: black;
+  .monsters {
+    text-align: center;
 
-  .title {
-    margin: auto;
-    padding: 30px;
-    color: black;
-  }
+    .title {
+      margin: auto;
+      padding: 30px;
+      color: white;
+    }
 
-  .search {
-    width: 250px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 10px 10px 10px 15px;
-    margin-bottom: 30px;
-    font-size: 16px;
-    line-height: 30px;
-    outline: none;
-    -webkit-appearance: none;
+    .search {
+      width: 250px;
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding: 10px 10px 10px 15px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .monsterList {
+      display: flex;
+      flex-wrap: wrap;
+
+      .monsterCard {
+        background-color: white;
+        display: flex;
+        width: 300px;
+        margin: 30px;
+        border: 3px solid black;
+        border-radius: 8px;
+        flex-direction: column;
+        .monsterName {
+          font-weight: bold;
+          margin: 30px;
+        }
+        .monsterEmail {
+          margin: 30px;
+        }
+      }
+      .monsterList :hover {
+        width: 310px;
+      }
+    }
   }
 }
