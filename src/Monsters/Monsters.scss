@@ -1,10 +1,12 @@
 .monsters {
   text-align: center;
+  height: 1500px;
+  background-color: black;
 
   .title {
     margin: auto;
     padding: 30px;
-    color: black;
+    color: white;
   }
 
   .search {
@@ -17,5 +19,22 @@
     line-height: 30px;
     outline: none;
     -webkit-appearance: none;
+  }
+
+  .contents {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .card {
+      background-color: white;
+      border-radius: 5px;
+
+      &:hover {
+        transform: scale(1.05);
+        transition: all 0.4s;
+      }
+    }
   }
 }
