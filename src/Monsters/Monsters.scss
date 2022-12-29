@@ -4,7 +4,7 @@
   .title {
     margin: auto;
     padding: 30px;
-    color: black;
+    color: white;
   }
 
   .search {
@@ -18,4 +18,36 @@
     outline: none;
     -webkit-appearance: none;
   }
+
+   .monsterCardList {
+    color: black;
+    margin: 0 auto;
+    width: 85vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+   }
+
+   .monsterCards {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    .monsterImage {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+   }
+
+
 }
