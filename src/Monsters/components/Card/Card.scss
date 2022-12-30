@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  .monsterImage {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
