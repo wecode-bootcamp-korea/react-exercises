@@ -1,0 +1,21 @@
+.card_box {
+  padding: 30px;
+  width: 400px;
+  height: 500px;
+  transition: transform 1s ease-out;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .monster_img {
+    width: 200px;
+  }
+
+  .name {
+    font-size: 30px;
+    margin: 40px 0;
+  }
+}
