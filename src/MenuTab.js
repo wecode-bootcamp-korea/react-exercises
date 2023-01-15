@@ -5,7 +5,7 @@ const MenuTab = () => {
   return (
     <div className="menuTab">
       <h1 className="title">Menu Tab</h1>
-      <ul className="tabs">
+      <ul onClick={()=>{setView}} className="tabs">
         <li>First</li>
         <li>Second</li>
         <li>Third</li>

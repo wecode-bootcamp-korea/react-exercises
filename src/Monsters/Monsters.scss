@@ -1,10 +1,11 @@
 .monsters {
   text-align: center;
-
+  background-color: black;
+  height: 100vw;
   .title {
     margin: auto;
     padding: 30px;
-    color: black;
+    color: white;
   }
 
   .search {
@@ -16,6 +17,10 @@
     font-size: 16px;
     line-height: 30px;
     outline: none;
-    -webkit-appearance: none;
+  }
+  .monsterContainer {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
