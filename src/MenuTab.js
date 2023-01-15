@@ -1,20 +1,29 @@
-import React from 'react';
-import './MenuTab.scss';
+import React, { useState } from "react";
+import "./MenuTab.scss";
 
 const MenuTab = () => {
+  const [content, setContent] = useState();
+
+  const handleClickList = (listContent) => setContent(listContent);
   return (
     <div className="menuTab">
       <h1 className="title">Menu Tab</h1>
       <ul className="tabs">
-        <li>First</li>
-        <li>Second</li>
-        <li>Third</li>
+        {LIST.map((li) => (
+          <li key={li.id} onClick={() => handleClickList(li.content)}>
+            {li.content}
+          </li>
+        ))}
       </ul>
-      <div className="contents">
-        {/* 메뉴에 따른 데이터가 들어가야 할 부분 */}
-      </div>
+      <div className="contents">{content}</div>
     </div>
   );
 };
 
 export default MenuTab;
+
+const LIST = [
+  { id: 1, content: "First" },
+  { id: 2, content: "Second" },
+  { id: 3, content: "Third" },
+];
