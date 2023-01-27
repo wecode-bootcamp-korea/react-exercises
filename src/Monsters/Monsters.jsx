@@ -12,6 +12,10 @@ function Monsters() {
          .then((data) => setMonsterList(data))
    }, [])
 
+   const goToMain = () => {
+      setSearchKeyword('')
+   }
+
    const monsterSearch = (event) => {
       setSearchKeyword(event.target.value)
    }
@@ -21,7 +25,9 @@ function Monsters() {
    )
    return (
       <div className="monsters">
-         <h1 className="title">Monsters</h1>
+         <h1 onClick={goToMain} className="title">
+            Monsters
+         </h1>
          <input
             className="search"
             placeholder="Search"
