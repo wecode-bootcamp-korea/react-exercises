@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kavoon&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
 .card {
    background-color: lightgray;
    margin: 20px;
@@ -18,10 +21,13 @@
    margin-top: 20px;
    margin-bottom: 5px;
    font-weight: 600;
+   font-family: 'Fredoka One', cursive;
 }
 
 .email {
-   margin-top: 0px;
+   font-size: 15px;
+   margin-top: 5px;
    margin-bottom: 0px;
    color: gray;
+   font-family: 'Comfortaa', cursive;
 }
