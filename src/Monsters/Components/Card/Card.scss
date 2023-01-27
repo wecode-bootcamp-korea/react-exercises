@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding-bottom: 30px;
+  background-color: white;
+  text-align: center;
+
+  .cardImg {
+    padding: 20px;
+  }
+
+  .cardName {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .cardEmail {
+    font-size: 0.8rem;
+  }
+}
