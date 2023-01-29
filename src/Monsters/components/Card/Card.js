@@ -12,8 +12,10 @@ const Card = monster => {
         alt="monster"
         className="monsterImage"
       />
-      <h2>{name}</h2>
-      <p>{email}</p>
+      <div className="text">
+        <h2>{name}</h2>
+        <p>{email}</p>
+      </div>
     </div>
   );
 };

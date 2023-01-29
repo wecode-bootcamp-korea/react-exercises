@@ -1,11 +1,18 @@
 .monsters {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  .title {
-    margin: auto;
-    padding: 30px;
-    color: whitesmoke;
-    font-size: 100px;
-    font-weight: 700;
+  button {
+    border: 0;
+    outline: 0;
+    background-color: inherit;
+    .title {
+      margin: auto;
+      padding: 30px;
+      color: whitesmoke;
+      font-size: 100px;
+      font-weight: 700;
+    }
   }
 
   .search {

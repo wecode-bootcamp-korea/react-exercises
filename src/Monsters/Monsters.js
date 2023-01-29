@@ -12,6 +12,10 @@ function Monsters() {
       .then(data => setMonsterList(data));
   }, []);
 
+  const initSearch = () => {
+    setSearchKeyword('');
+  };
+
   const searchMonster = e => {
     setSearchKeyword(e.target.value);
   };
@@ -21,7 +25,9 @@ function Monsters() {
   );
   return (
     <div className="monsters">
-      <h1 className="title">Monsters</h1>
+      <button onClick={initSearch}>
+        <h1 className="title">Monsters</h1>
+      </button>
       <input
         className="search"
         placeholder="Search"

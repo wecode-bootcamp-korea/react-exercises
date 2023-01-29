@@ -8,15 +8,14 @@ const CardList = monsterList => {
   console.log(monsterListArray);
   return (
     <div className="cardList">
-      {monsterListArray &&
-        monsterListArray.map(monster => (
-          <Card
-            key={monster.id}
-            id={monster.id}
-            name={monster.name}
-            email={monster.email}
-          />
-        ))}
+      {monsterListArray.map(monster => (
+        <Card
+          key={monster.id}
+          id={monster.id}
+          name={monster.name}
+          email={monster.email}
+        />
+      ))}
     </div>
   );
 };
