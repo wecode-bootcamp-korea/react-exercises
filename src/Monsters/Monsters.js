@@ -28,7 +28,7 @@ function Monsters() {
         onChange={searchMonster}
         value={searchKeyword}
       />
-      <CardList monsterList={filteredItem} />
+      <CardList monsterListArray={filteredItem} />
     </div>
   );
 }

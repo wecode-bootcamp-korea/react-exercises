@@ -5,11 +5,17 @@ import './CardList.scss';
 const CardList = monsterList => {
   const { monsterListArray } = monsterList;
   console.log(monsterList);
+  console.log(monsterListArray);
   return (
     <div className="cardList">
       {monsterListArray &&
         monsterListArray.map(monster => (
-          <Card key={monster.id} monster={monster} />
+          <Card
+            key={monster.id}
+            id={monster.id}
+            name={monster.name}
+            email={monster.email}
+          />
         ))}
     </div>
   );
