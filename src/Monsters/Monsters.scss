@@ -4,7 +4,7 @@
   .title {
     margin: auto;
     padding: 30px;
-    color: black;
+    color: #fff;
   }
 
   .search {
@@ -17,5 +17,25 @@
     line-height: 30px;
     outline: none;
     -webkit-appearance: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 0 auto;
+
+    .monster {
+      width: 14em;
+      margin: 0.5em;
+      padding-bottom: 1.5em;
+      background-color: #fff;
+      border-radius: 1em;
+
+      p {
+        font-weight: 900;
+        margin: 0.8em 0;
+      }
+    }
   }
 }
